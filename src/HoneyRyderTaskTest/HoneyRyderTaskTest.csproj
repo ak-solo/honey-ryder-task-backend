@@ -18,6 +18,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
@@ -26,5 +30,8 @@
     <ProjectReference Include="..\HoneyRyderTask.Shared\HoneyRyderTask.Shared.csproj" />
     <ProjectReference Include="..\HoneyRyderTask.UseCase\HoneyRyderTask.UseCase.csproj" />
     <ProjectReference Include="..\HoneyRyderTask.WebAPI\HoneyRyderTask.WebAPI.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="StyleCop.Analyzers" />
   </ItemGroup>
 </Project>
