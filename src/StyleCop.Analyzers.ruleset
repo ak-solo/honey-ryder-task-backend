@@ -1,0 +1,5 @@
+﻿<RuleSet Name="Global Rules" ToolsVersion="14.0">
+    <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+      <Rule Id="SA1633" Action="None" /> <!-- コードファイルに標準のファイルヘッダーがありません。 -->
+    </Rules>
+</RuleSet>

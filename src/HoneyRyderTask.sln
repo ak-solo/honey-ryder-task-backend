@@ -15,6 +15,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoneyRyderTaskTest", "Honey
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoneyRyderTask.Shared", "HoneyRyderTask.Shared\HoneyRyderTask.Shared.csproj", "{1DC801F7-F5EA-461D-AB95-892C0BC47984}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{424655E6-86ED-43D4-8E01-E5CA18382161}"
+	ProjectSection(SolutionItems) = preProject
+		StyleCop.Analyzers.ruleset = StyleCop.Analyzers.ruleset
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
