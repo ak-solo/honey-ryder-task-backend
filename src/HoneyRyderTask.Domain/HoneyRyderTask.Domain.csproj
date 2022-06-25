@@ -17,11 +17,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="StyleCop.Analyzers" />
+    <None Remove="NUlid" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="NUlid" Version="1.7.0" />
   </ItemGroup>
 </Project>
