@@ -1,0 +1,7 @@
+﻿<RuleSet Name="Test Rules" ToolsVersion="14.0">
+    <Include Path="..\stylecop.analyzers.ruleset" Action="Default" />
+    <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+      <Rule Id="CS1591" Action="None" /> <!-- XML コメントがありません。 -->
+      <Rule Id="SA1600" Action="None" /> <!-- コード要素にドキュメントヘッダーがありません。 -->
+    </Rules>
+</RuleSet>

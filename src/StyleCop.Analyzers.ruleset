@@ -1,5 +1,9 @@
 ﻿<RuleSet Name="Global Rules" ToolsVersion="14.0">
     <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+      <Rule Id="SA1200" Action="None" /> <!-- usingディレクティブが名前空間要素の内部に配置されていません。 -->
+      <Rule Id="SA1623" Action="None" /> <!-- プロパティの<summary>タグ内のドキュメントテキストが、プロパティ内のアクセサーと一致しません。 -->
+      <Rule Id="SA1629" Action="None" /> <!-- Xmlヘッダードキュメントのセクションがピリオドで終わっていません。 -->
       <Rule Id="SA1633" Action="None" /> <!-- コードファイルに標準のファイルヘッダーがありません。 -->
+      <Rule Id="SA1649" Action="None" /> <!-- コードファイルのファイル名が、ファイルで宣言されている最初のタイプと一致しません。（record型を使用するとこの警告がでる為、無効にする） -->
     </Rules>
 </RuleSet>
