@@ -43,6 +43,7 @@
     <None Remove="Tests\Domain\Models\Shared\" />
     <None Remove="Tests\Shared\" />
     <None Remove="Tests\Shared\Extensions\" />
+    <None Remove="Tests\Domain\Models\Tasks\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Tests\" />
@@ -51,5 +52,6 @@
     <Folder Include="Tests\Domain\Models\Shared\" />
     <Folder Include="Tests\Shared\" />
     <Folder Include="Tests\Shared\Extensions\" />
+    <Folder Include="Tests\Domain\Models\Tasks\" />
   </ItemGroup>
 </Project>
