@@ -23,6 +23,19 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             Assert.Equal(value, id.Value);
         }
 
+        [Fact(DisplayName = "[TaskId(value)] 指定した値がULID形式出ない場合は例外を投げる")]
+        public void TaskId_Test2()
+        {
+            // arrange
+            var value = "01D0KDBRASGD5HRSNDCKA0AH5";    // 25文字（ULIDは26文字）
+
+            // act
+            var action = () => new TaskId(value);
+
+            // assert
+            Assert.Throws<Exception>(action);
+        }
+
         [Fact(DisplayName = "[NewId()] 新しいタスクID(ULID)を採番できる")]
         public void NewId_Test1()
         {

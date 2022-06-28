@@ -25,7 +25,7 @@ namespace HoneyRyderTask.Domain.Models.Shared
         /// <returns>新しいULID</returns>
         public static ULID NewULID()
         {
-            return new ULID(Ulid.NewUlid().ToString());
+            return new ULID(NUlid.Ulid.NewUlid().ToString());
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace HoneyRyderTask.Domain.Models.Shared
         /// </returns>
         public static bool IsULID(string value)
         {
-            return Ulid.TryParse(value, out _);
+            return NUlid.Ulid.TryParse(value, out _);
         }
     }
 }
