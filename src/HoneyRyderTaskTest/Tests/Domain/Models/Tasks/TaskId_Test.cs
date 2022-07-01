@@ -1,4 +1,4 @@
-﻿using System;
+﻿using HoneyRyderTask.Domain.Exceptions;
 using HoneyRyderTask.Domain.Models.Shared;
 using HoneyRyderTask.Domain.Models.Tasks;
 using Xunit;
@@ -23,7 +23,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             Assert.Equal(value, id.Value);
         }
 
-        [Fact(DisplayName = "[TaskId(value)] 指定した値がULID形式出ない場合は例外を投げる")]
+        [Fact(DisplayName = "[TaskId(value)] 指定した値がULID形式でない場合は例外を投げる")]
         public void TaskId_Test2()
         {
             // arrange
@@ -33,7 +33,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             var action = () => new TaskId(value);
 
             // assert
-            Assert.Throws<Exception>(action);
+            Assert.Throws<UlidFormatException>(action);
         }
 
         [Fact(DisplayName = "[NewId()] 新しいタスクID(ULID)を採番できる")]

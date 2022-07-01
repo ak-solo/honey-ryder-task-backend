@@ -1,4 +1,5 @@
-﻿using HoneyRyderTask.Domain.Models.Shared;
+﻿using HoneyRyderTask.Domain.Exceptions;
+using HoneyRyderTask.Domain.Models.Shared;
 
 namespace HoneyRyderTask.Domain.Models.Tasks
 {
@@ -38,7 +39,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// </summary>
         private void Validate(string value)
         {
-            if (!ULID.IsULID(value)) throw new Exception(message: "ULID形式ではありません。");
+            if (!ULID.IsULID(value)) throw new UlidFormatException();
         }
     }
 }
