@@ -18,7 +18,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// <param name="value">タスク説明となる文字列を指定します。</param>
         public TaskDescription(string value)
         {
-            Validate(value);
+            this.Validate(value);
             this.Value = value;
         }
 
@@ -37,4 +37,3 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         }
     }
 }
-

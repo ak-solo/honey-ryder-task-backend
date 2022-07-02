@@ -10,7 +10,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
     /// </summary>
     public class TaskDescription_Test
     {
-        [Fact(DisplayName ="[TaskDescription(value)] 指定した値でタスク説明を生成できる")]
+        [Fact(DisplayName = "[TaskDescription(value)] 指定した値でタスク説明を生成できる")]
         public void TaskDescription_Test1()
         {
             // arrange
@@ -48,7 +48,5 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             // assert
             Assert.Throws<MaxLengthException>(act);
         }
-
     }
 }
-
