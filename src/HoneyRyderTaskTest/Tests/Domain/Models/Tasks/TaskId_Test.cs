@@ -45,5 +45,20 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             // assert
             Assert.True(ULID.IsULID(newId.Value));
         }
+
+        [Fact(DisplayName = "[Equals] 値ベースの等価比較ができる")]
+        public void Equals_Test1()
+        {
+            // arrange
+            var value = "01D0KDBRASGD5HRSNDCKA0AH53";
+            var id1 = new TaskId(value);
+            var id2 = new TaskId(value);
+
+            // act
+            var actual = id1 == id2;
+
+            // assert
+            Assert.True(actual);
+        }
     }
 }

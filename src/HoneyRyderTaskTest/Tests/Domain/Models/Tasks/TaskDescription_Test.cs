@@ -48,5 +48,20 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             // assert
             Assert.Throws<MaxLengthException>(act);
         }
+
+        [Fact(DisplayName = "[Equals] 値ベースの等価比較ができる")]
+        public void Equals_Test1()
+        {
+            // arrange
+            var value = "タスク説明";
+            var description1 = new TaskDescription(value);
+            var description2 = new TaskDescription(value);
+
+            // act
+            var actual = description1 == description2;
+
+            // assert
+            Assert.True(actual);
+        }
     }
 }

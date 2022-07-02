@@ -5,7 +5,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
     /// <summary>
     /// タスク説明
     /// </summary>
-    public class TaskDescription
+    public record TaskDescription
     {
         /// <summary>
         /// タスク説明の最大文字数
