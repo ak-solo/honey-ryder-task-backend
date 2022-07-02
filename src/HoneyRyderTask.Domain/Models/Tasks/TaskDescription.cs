@@ -3,27 +3,27 @@
 namespace HoneyRyderTask.Domain.Models.Tasks
 {
     /// <summary>
-    /// タスクタイトル
+    /// タスク説明
     /// </summary>
-    public record TaskTitle
+    public class TaskDescription
     {
         /// <summary>
-        /// タスクタイトルの最大文字数
+        /// タスク説明の最大文字数
         /// </summary>
-        public const int MaxLengh = 30;
+        public const int MaxLength = 1000;
 
         /// <summary>
-        /// タスクタイトルを生成します。
+        /// 指定の値でタスク説明を生成します。
         /// </summary>
-        /// <param name="value">タスクタイトルとなる文字列を指定します。</param>
-        public TaskTitle(string value)
+        /// <param name="value">タスク説明となる文字列を指定します。</param>
+        public TaskDescription(string value)
         {
-            this.Validate(value);
+            Validate(value);
             this.Value = value;
         }
 
         /// <summary>
-        /// タスクタイトル
+        /// タスク説明
         /// </summary>
         public string Value { get; }
 
@@ -33,7 +33,8 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// <param name="value">値</param>
         private void Validate(string value)
         {
-            if (value.Length > MaxLengh) throw new MaxLengthException(MaxLengh);
+            if (value.Length > MaxLength) throw new MaxLengthException(MaxLength);
         }
     }
 }
+
