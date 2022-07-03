@@ -16,10 +16,10 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             var value = new DateTime(2022, 1, 1);
 
             // act
-            var dueDate = new TaskCreatedDate(value);
+            var createdDate = new TaskCreatedDate(value);
 
             // assert
-            Assert.Equal(value, dueDate.Value);
+            Assert.Equal(value, createdDate.Value);
         }
 
         [Fact(DisplayName = "[TaskCreatedDate(value)] 指定した値の時間部分は丸めて日付のみでタスク期限を生成する")]
@@ -29,11 +29,11 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             var value = new DateTime(2022, 1, 1, 12, 30, 45);
 
             // act
-            var dueDate = new TaskCreatedDate(value);
+            var createdDate = new TaskCreatedDate(value);
 
             // assert
-            Assert.NotEqual(value, dueDate.Value);      // 時間を含めると不一致
-            Assert.Equal(value.Date, dueDate.Value);    // 日付だけでみると一致
+            Assert.NotEqual(value, createdDate.Value);      // 時間を含めると不一致
+            Assert.Equal(value.Date, createdDate.Value);    // 日付だけでみると一致
         }
 
         [Fact(DisplayName = "[Equals] 値ベースの等価比較ができる")]
