@@ -26,6 +26,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Moq" Version="4.18.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,6 +45,7 @@
     <None Remove="Tests\Shared\" />
     <None Remove="Tests\Shared\Extensions\" />
     <None Remove="Tests\Domain\Models\Tasks\" />
+    <None Remove="Moq" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Tests\" />
