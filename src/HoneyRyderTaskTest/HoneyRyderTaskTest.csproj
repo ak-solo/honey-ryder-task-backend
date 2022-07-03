@@ -46,6 +46,12 @@
     <None Remove="Tests\Shared\Extensions\" />
     <None Remove="Tests\Domain\Models\Tasks\" />
     <None Remove="Moq" />
+    <None Remove="Tests\UseCase\" />
+    <None Remove="Tests\UseCase\Services\" />
+    <None Remove="Tests\UseCase\Services\Tasks\" />
+    <None Remove="Tests\UseCase\Services\Tasks\RegisterTask\" />
+    <None Remove="Tests\Domain\Services\" />
+    <None Remove="Tests\Domain\Services\Tasks\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Tests\" />
@@ -55,5 +61,11 @@
     <Folder Include="Tests\Shared\" />
     <Folder Include="Tests\Shared\Extensions\" />
     <Folder Include="Tests\Domain\Models\Tasks\" />
+    <Folder Include="Tests\UseCase\" />
+    <Folder Include="Tests\UseCase\Services\" />
+    <Folder Include="Tests\UseCase\Services\Tasks\" />
+    <Folder Include="Tests\UseCase\Services\Tasks\RegisterTask\" />
+    <Folder Include="Tests\Domain\Services\" />
+    <Folder Include="Tests\Domain\Services\Tasks\" />
   </ItemGroup>
 </Project>

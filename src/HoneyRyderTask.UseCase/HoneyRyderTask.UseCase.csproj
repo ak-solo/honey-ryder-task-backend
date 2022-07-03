@@ -13,11 +13,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="StyleCop.Analyzers" />
+    <None Remove="Services\" />
+    <None Remove="Services\Tasks\" />
+    <None Remove="Services\Tasks\Register\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="Services\Tasks\" />
+    <Folder Include="Services\Tasks\Register\" />
   </ItemGroup>
 </Project>

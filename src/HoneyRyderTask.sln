@@ -18,6 +18,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{424655E6-86ED-43D4-8E01-E5CA18382161}"
 	ProjectSection(SolutionItems) = preProject
 		StyleCop.Analyzers.ruleset = StyleCop.Analyzers.ruleset
+		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
 Global

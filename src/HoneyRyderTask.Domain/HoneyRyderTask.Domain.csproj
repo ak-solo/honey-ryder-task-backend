@@ -24,6 +24,7 @@
     <None Remove="Exceptions\" />
     <None Remove="Services\" />
     <None Remove="Services\Shared\" />
+    <None Remove="Services\Tasks\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
@@ -39,5 +40,6 @@
     <Folder Include="Exceptions\" />
     <Folder Include="Services\" />
     <Folder Include="Services\Shared\" />
+    <Folder Include="Services\Tasks\" />
   </ItemGroup>
 </Project>
