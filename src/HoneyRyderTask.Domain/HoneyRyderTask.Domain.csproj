@@ -22,6 +22,8 @@
     <None Remove="NUlid" />
     <None Remove="Models\Tasks\" />
     <None Remove="Exceptions\" />
+    <None Remove="Services\" />
+    <None Remove="Services\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
@@ -35,5 +37,7 @@
     <Folder Include="Models\Shared\" />
     <Folder Include="Models\Tasks\" />
     <Folder Include="Exceptions\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Shared\" />
   </ItemGroup>
 </Project>

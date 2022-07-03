@@ -5,7 +5,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
     /// <summary>
     /// タスク期限
     /// </summary>
-    public class TaskDueDate
+    public record TaskDueDate
     {
         /// <summary>
         /// タスク期限を生成します。
