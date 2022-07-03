@@ -8,16 +8,16 @@
         /// <summary>
         /// 未着手
         /// </summary>
-        NotStarted = 0,
+        NotStarted = 1,
 
         /// <summary>
         /// 着手
         /// </summary>
-        Started = 1,
+        Started = 2,
 
         /// <summary>
         /// 完了
         /// </summary>
-        Completed = 2,
+        Completed = 3,
     }
 }
