@@ -7,6 +7,10 @@
     <CodeAnalysisRuleSet>..\StyleCop.Analyzers.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\net6.0\HoneyRyderTask.UseCase.xml</DocumentationFile>
+  </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\HoneyRyderTask.Domain\HoneyRyderTask.Domain.csproj" />
     <ProjectReference Include="..\HoneyRyderTask.Shared\HoneyRyderTask.Shared.csproj" />
@@ -15,7 +19,6 @@
     <None Remove="StyleCop.Analyzers" />
     <None Remove="Services\" />
     <None Remove="Services\Tasks\" />
-    <None Remove="Services\Tasks\Register\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
@@ -26,6 +29,5 @@
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Services\Tasks\" />
-    <Folder Include="Services\Tasks\Register\" />
   </ItemGroup>
 </Project>

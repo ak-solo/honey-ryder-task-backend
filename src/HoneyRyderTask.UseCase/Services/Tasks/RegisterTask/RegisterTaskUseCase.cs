@@ -1,5 +1,4 @@
-﻿using System;
-using System.Transactions;
+﻿using System.Transactions;
 using HoneyRyderTask.Domain.Models.Tasks;
 
 namespace HoneyRyderTask.UseCase.Services.Tasks.RegisterTask
