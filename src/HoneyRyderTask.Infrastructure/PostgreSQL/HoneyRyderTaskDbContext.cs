@@ -17,7 +17,7 @@ namespace HoneyRyderTask.Infrastructure.PostgreSQL
             var configuration = new ConfigurationBuilder()
                 .AddUserSecrets<HoneyRyderTaskDbContext>()
                 .Build();
-            optionsBuilder.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
+            optionsBuilder.UseNpgsql(configuration["DefaultConnection"]);
         }
     }
 }
