@@ -26,6 +26,8 @@
     <None Remove="PostgreSQL\" />
     <None Remove="PostgreSQL\DataModels\" />
     <None Remove="PostgreSQL\DataModels\Tasks\" />
+    <None Remove="PostgreSQL\Repositories\" />
+    <None Remove="PostgreSQL\Repositories\Tasks\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
@@ -44,5 +46,7 @@
     <Folder Include="PostgreSQL\" />
     <Folder Include="PostgreSQL\DataModels\" />
     <Folder Include="PostgreSQL\DataModels\Tasks\" />
+    <Folder Include="PostgreSQL\Repositories\" />
+    <Folder Include="PostgreSQL\Repositories\Tasks\" />
   </ItemGroup>
 </Project>
