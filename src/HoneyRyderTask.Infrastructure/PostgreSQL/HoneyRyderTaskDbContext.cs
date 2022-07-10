@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HoneyRyderTask.Infrastructure.PostgreSQL.DataModels.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace HoneyRyderTask.Infrastructure.PostgreSQL
@@ -8,6 +9,11 @@ namespace HoneyRyderTask.Infrastructure.PostgreSQL
     /// </summary>
     public class HoneyRyderTaskDbContext : DbContext
     {
+        /// <summary>
+        /// タスク
+        /// </summary>
+        public DbSet<TaskDataModel> Tasks => this.Set<TaskDataModel>();
+
         /// <summary>
         /// DB構成
         /// </summary>

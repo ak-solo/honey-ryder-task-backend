@@ -24,6 +24,8 @@
     <None Remove="Microsoft.Extensions.Configuration.UserSecrets" />
     <None Remove="Microsoft.Extensions.Configuration" />
     <None Remove="PostgreSQL\" />
+    <None Remove="PostgreSQL\DataModels\" />
+    <None Remove="PostgreSQL\DataModels\Tasks\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
@@ -40,5 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PostgreSQL\" />
+    <Folder Include="PostgreSQL\DataModels\" />
+    <Folder Include="PostgreSQL\DataModels\Tasks\" />
   </ItemGroup>
 </Project>

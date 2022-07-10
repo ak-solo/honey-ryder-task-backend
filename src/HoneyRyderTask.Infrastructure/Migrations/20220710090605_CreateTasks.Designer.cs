@@ -3,17 +3,20 @@ using System;
 using HoneyRyderTask.Infrastructure.PostgreSQL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
+#pragma warning disable CS1591
 
 namespace HoneyRyderTask.Infrastructure.Migrations
 {
     [DbContext(typeof(HoneyRyderTaskDbContext))]
-    partial class HoneyRyderTaskDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220710090605_CreateTasks")]
+    partial class CreateTasks
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

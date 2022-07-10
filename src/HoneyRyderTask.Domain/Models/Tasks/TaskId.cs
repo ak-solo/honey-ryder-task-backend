@@ -9,6 +9,11 @@ namespace HoneyRyderTask.Domain.Models.Tasks
     public record TaskId
     {
         /// <summary>
+        /// タスクIDの最大文字数
+        /// </summary>
+        public const int MaxLengh = 26;
+
+        /// <summary>
         /// タスクIDを生成します。
         /// </summary>
         /// <param name="value">ULID形式の文字列を指定します。</param>
