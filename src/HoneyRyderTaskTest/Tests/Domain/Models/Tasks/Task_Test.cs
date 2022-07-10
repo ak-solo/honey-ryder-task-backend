@@ -104,7 +104,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             var task = Task.Create(title, description, dueDate, new DefaultDateTimeProvider());
 
             // assert
-            Assert.Null(task.CompletedDate);
+            Assert.Null(task.CompletionDate);
         }
 
         [Fact(DisplayName = "[Reconstruct()] 指定した値でタスクを再構築できる。")]
@@ -117,7 +117,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             var status = TaskStatus.NotStarted;
             var dueDate = new TaskDueDate(new DateTime(2022, 3, 31));
             var createdDate = new TaskCreationDate(new DateTime(2022, 1, 1));
-            var completedDate = new TaskCompletedDate(new DateTime(2022, 2, 1));
+            var completedDate = new TaskCompletionDate(new DateTime(2022, 2, 1));
 
             // act
             var task = Task.Reconstruct(
@@ -136,7 +136,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             Assert.Equal(status, task.Status);
             Assert.Equal(dueDate, task.DueDate);
             Assert.Equal(createdDate, task.CreationDate);
-            Assert.Equal(completedDate, task.CompletedDate);
+            Assert.Equal(completedDate, task.CompletionDate);
         }
     }
 }

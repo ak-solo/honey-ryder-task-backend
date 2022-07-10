@@ -1,17 +1,15 @@
-﻿using System;
-
-namespace HoneyRyderTask.Domain.Models.Tasks
+﻿namespace HoneyRyderTask.Domain.Models.Tasks
 {
     /// <summary>
     /// タスク完了日
     /// </summary>
-    public record TaskCompletedDate
+    public record TaskCompletionDate
     {
         /// <summary>
         /// タスク完了日を生成します。
         /// </summary>
         /// <param name="value">タスク完了日となる値を指定します。</param>
-        public TaskCompletedDate(DateTime value)
+        public TaskCompletionDate(DateTime value)
         {
             this.Value = value.Date;
         }
