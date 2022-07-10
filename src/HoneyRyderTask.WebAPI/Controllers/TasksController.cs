@@ -8,7 +8,8 @@ namespace HoneyRyderTask.WebAPI.Controllers
     /// タスク - controller
     /// </summary>
     [ApiController]
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public class TasksController : Controller
     {
         private readonly RegisterTaskUseCase registerTaskUseCase = default!;
@@ -27,6 +28,7 @@ namespace HoneyRyderTask.WebAPI.Controllers
         /// </summary>
         /// <param name="request">タスク作成に必要な情報を指定します。</param>
         [HttpPost]
+        [MapToApiVersion("1.0")]
         public void RegisterTask([FromBody] RegisterTaskRequest request)
         {
             var command = request.ToCommand();
