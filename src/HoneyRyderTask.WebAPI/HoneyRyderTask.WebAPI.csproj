@@ -36,8 +36,12 @@
   <ItemGroup>
     <None Remove="StyleCop.Analyzers" />
     <None Remove="Controllers\" />
+    <None Remove="Models\" />
+    <None Remove="Models\Tasks\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
+    <Folder Include="Models\Tasks\" />
   </ItemGroup>
 </Project>
