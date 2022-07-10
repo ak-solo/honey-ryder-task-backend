@@ -1,5 +1,4 @@
 ﻿using HoneyRyderTask.Domain.Models.Shared;
-using HoneyRyderTask.Domain.Services.Shared;
 
 namespace HoneyRyderTask.Domain.Models.Tasks
 {
@@ -14,7 +13,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
             TaskDescription description,
             TaskStatus status,
             TaskDueDate? dueDate,
-            TaskCreatedDate createdDate,
+            TaskCreationDate creationDate,
             TaskCompletedDate? completedDate)
         {
             this.Id = id;
@@ -22,7 +21,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
             this.Description = description;
             this.DueDate = dueDate;
             this.Status = status;
-            this.CreatedDate = createdDate;
+            this.CreationDate = creationDate;
             this.CompletedDate = completedDate;
         }
 
@@ -54,7 +53,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// <summary>
         /// タスク作成日
         /// </summary>
-        public TaskCreatedDate CreatedDate { get; private set; }
+        public TaskCreationDate CreationDate { get; private set; }
 
         /// <summary>
         /// タスク完了日
@@ -81,7 +80,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
                 description,
                 status: TaskStatus.NotStarted,
                 dueDate,
-                createdDate: TaskCreatedDate.CreateWithCurrentDate(dateTimeProvider),
+                creationDate: TaskCreationDate.CreateWithCurrentDate(dateTimeProvider),
                 completedDate: null);
         }
 
@@ -93,7 +92,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// <param name="description">タスク説明</param>
         /// <param name="status">タスク状態</param>
         /// <param name="dueDate">タスク期限</param>
-        /// <param name="createdDate">タスク作成日</param>
+        /// <param name="creationDate">タスク作成日</param>
         /// <param name="completedDate">タスク完了日</param>
         /// <returns>タスク</returns>
         public static Task Reconstruct(
@@ -102,7 +101,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
             TaskDescription description,
             TaskStatus status,
             TaskDueDate? dueDate,
-            TaskCreatedDate createdDate,
+            TaskCreationDate creationDate,
             TaskCompletedDate? completedDate)
         {
             return new Task(
@@ -111,7 +110,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
                 description,
                 status,
                 dueDate,
-                createdDate,
+                creationDate,
                 completedDate);
         }
     }

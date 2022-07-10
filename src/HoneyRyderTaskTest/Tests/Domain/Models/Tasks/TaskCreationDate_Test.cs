@@ -7,35 +7,35 @@ using Xunit;
 namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
 {
     /// <summary>
-    /// TaskCreatedDate - test
+    /// TaskCreationDate - test
     /// </summary>
-    public class TaskCreatedDate_Test
+    public class TaskCreationDate_Test
     {
-        [Fact(DisplayName = "[TaskCreatedDate(value)] 指定した値でタスク期限を生成できる")]
-        public void TaskCreatedDate_Test1()
+        [Fact(DisplayName = "[TaskCreationDate(value)] 指定した値でタスク期限を生成できる")]
+        public void TaskCreationDate_Test1()
         {
             // arrange
             var value = new DateTime(2022, 1, 1);
 
             // act
-            var createdDate = new TaskCreatedDate(value);
+            var creationDate = new TaskCreationDate(value);
 
             // assert
-            Assert.Equal(value, createdDate.Value);
+            Assert.Equal(value, creationDate.Value);
         }
 
-        [Fact(DisplayName = "[TaskCreatedDate(value)] 指定した値の時間部分は丸めて日付のみでタスク期限を生成する")]
-        public void TaskCreatedDate_Test2()
+        [Fact(DisplayName = "[TaskCreationDate(value)] 指定した値の時間部分は丸めて日付のみでタスク期限を生成する")]
+        public void TaskCreationDate_Test2()
         {
             // arrange
             var value = new DateTime(2022, 1, 1, 12, 30, 45);
 
             // act
-            var createdDate = new TaskCreatedDate(value);
+            var creationDate = new TaskCreationDate(value);
 
             // assert
-            Assert.NotEqual(value, createdDate.Value);      // 時間を含めると不一致
-            Assert.Equal(value.Date, createdDate.Value);    // 日付だけでみると一致
+            Assert.NotEqual(value, creationDate.Value);     // 時間を含めると不一致
+            Assert.Equal(value.Date, creationDate.Value);   // 日付だけでみると一致
         }
 
         [Fact(DisplayName = "[Equals] 値ベースの等価比較ができる")]
@@ -43,11 +43,11 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
         {
             // arrange
             var value = new DateTime(2022, 1, 1);
-            var createDate1 = new TaskCreatedDate(value);
-            var createDate2 = new TaskCreatedDate(value);
+            var creationDate1 = new TaskCreationDate(value);
+            var creationDate2 = new TaskCreationDate(value);
 
             // act
-            var actual = createDate1 == createDate2;
+            var actual = creationDate1 == creationDate2;
 
             // assert
             Assert.True(actual);
@@ -63,10 +63,10 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             var dateTimeProvider = mock.Object;
 
             // act
-            var createdDate = TaskCreatedDate.CreateWithCurrentDate(dateTimeProvider);
+            var creationDate = TaskCreationDate.CreateWithCurrentDate(dateTimeProvider);
 
             // assert
-            Assert.Equal(value, createdDate.Value);
+            Assert.Equal(value, creationDate.Value);
         }
     }
 }

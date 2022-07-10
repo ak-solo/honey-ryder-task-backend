@@ -5,13 +5,13 @@ namespace HoneyRyderTask.Domain.Models.Tasks
     /// <summary>
     /// タスク作成日
     /// </summary>
-    public record TaskCreatedDate
+    public record TaskCreationDate
     {
         /// <summary>
         /// タスク作成日を生成します。
         /// </summary>
         /// <param name="value">タスク作成日となる値を指定します。</param>
-        public TaskCreatedDate(DateTime value)
+        public TaskCreationDate(DateTime value)
         {
             this.Value = value.Date;
         }
@@ -26,9 +26,9 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// </summary>
         /// <param name="dateTimeProvider">日付プロバイダー</param>
         /// <returns>タスク作成日</returns>
-        public static TaskCreatedDate CreateWithCurrentDate(IDateTimeProvider dateTimeProvider)
+        public static TaskCreationDate CreateWithCurrentDate(IDateTimeProvider dateTimeProvider)
         {
-            return new TaskCreatedDate(dateTimeProvider.GetCurrentDate());
+            return new TaskCreationDate(dateTimeProvider.GetCurrentDate());
         }
     }
 }

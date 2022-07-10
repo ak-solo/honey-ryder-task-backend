@@ -89,7 +89,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             var task = Task.Create(title, description, dueDate, dateTimeProvider);
 
             // assert
-            Assert.Equal(dateTimeProvider.GetCurrentDate(), task.CreatedDate.Value);
+            Assert.Equal(dateTimeProvider.GetCurrentDate(), task.CreationDate.Value);
         }
 
         [Fact(DisplayName = "[Create()] タスク作成時、タスク完了日にはnullが設定される。")]
@@ -116,7 +116,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             var description = new TaskDescription("タスク説明");
             var status = TaskStatus.NotStarted;
             var dueDate = new TaskDueDate(new DateTime(2022, 3, 31));
-            var createdDate = new TaskCreatedDate(new DateTime(2022, 1, 1));
+            var createdDate = new TaskCreationDate(new DateTime(2022, 1, 1));
             var completedDate = new TaskCompletedDate(new DateTime(2022, 2, 1));
 
             // act
@@ -135,7 +135,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             Assert.Equal(description, task.Description);
             Assert.Equal(status, task.Status);
             Assert.Equal(dueDate, task.DueDate);
-            Assert.Equal(createdDate, task.CreatedDate);
+            Assert.Equal(createdDate, task.CreationDate);
             Assert.Equal(completedDate, task.CompletedDate);
         }
     }
