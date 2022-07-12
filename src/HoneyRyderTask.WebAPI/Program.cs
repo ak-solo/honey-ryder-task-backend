@@ -1,15 +1,12 @@
 ﻿using System.Reflection;
-using HoneyRyderTask.Domain.Models.Shared;
-using HoneyRyderTask.Domain.Models.Tasks;
-using HoneyRyderTask.Domain.Services.Shared;
 using HoneyRyderTask.Infrastructure.PostgreSQL;
-using HoneyRyderTask.Infrastructure.PostgreSQL.Repositories.Tasks;
-using HoneyRyderTask.UseCase.Services.Tasks.RegisterTask;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+
+builder.Services.AddUseCases();
 
 builder.Services.AddApiVersioning();
 
@@ -22,14 +19,6 @@ builder.Services.AddSwaggerGen(c =>
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     c.IncludeXmlComments(xmlPath);
 });
-
-builder.Services.AddSingleton<IDateTimeProvider, DefaultDateTimeProvider>();
-
-builder.Services.AddTransient<RegisterTaskUseCase>();
-
-builder.Services.AddTransient<ITaskFactory, HoneyRyderTask.Domain.Services.Tasks.TaskFactory>();
-
-builder.Services.AddTransient<ITaskRepository, TaskRepository>();
 
 builder.Services.AddDbContext<HoneyRyderTaskDbContext>();
 

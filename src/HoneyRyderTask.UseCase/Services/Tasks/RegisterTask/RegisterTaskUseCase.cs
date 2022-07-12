@@ -1,11 +1,13 @@
 ﻿using System.Transactions;
 using HoneyRyderTask.Domain.Models.Tasks;
+using HoneyRyderTask.UseCase.Attributes;
 
 namespace HoneyRyderTask.UseCase.Services.Tasks.RegisterTask
 {
     /// <summary>
     /// タスク登録ユースケース
     /// </summary>
+    [UseCase]
     public class RegisterTaskUseCase
     {
         private readonly ITaskFactory taskFactory;
