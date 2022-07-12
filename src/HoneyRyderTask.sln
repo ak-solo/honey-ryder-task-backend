@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoneyRyderTask.Infrastructu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoneyRyderTaskTest", "HoneyRyderTaskTest\HoneyRyderTaskTest.csproj", "{76CCD77C-1A7B-4372-BDA6-B4E96C8AF590}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoneyRyderTask.Shared", "HoneyRyderTask.Shared\HoneyRyderTask.Shared.csproj", "{1DC801F7-F5EA-461D-AB95-892C0BC47984}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{424655E6-86ED-43D4-8E01-E5CA18382161}"
 	ProjectSection(SolutionItems) = preProject
 		StyleCop.Analyzers.ruleset = StyleCop.Analyzers.ruleset
@@ -47,10 +45,6 @@ Global
 		{76CCD77C-1A7B-4372-BDA6-B4E96C8AF590}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76CCD77C-1A7B-4372-BDA6-B4E96C8AF590}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76CCD77C-1A7B-4372-BDA6-B4E96C8AF590}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1DC801F7-F5EA-461D-AB95-892C0BC47984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DC801F7-F5EA-461D-AB95-892C0BC47984}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1DC801F7-F5EA-461D-AB95-892C0BC47984}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1DC801F7-F5EA-461D-AB95-892C0BC47984}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

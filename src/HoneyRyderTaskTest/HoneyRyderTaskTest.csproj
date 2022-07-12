@@ -32,7 +32,6 @@
   <ItemGroup>
     <ProjectReference Include="..\HoneyRyderTask.Domain\HoneyRyderTask.Domain.csproj" />
     <ProjectReference Include="..\HoneyRyderTask.Infrastructure\HoneyRyderTask.Infrastructure.csproj" />
-    <ProjectReference Include="..\HoneyRyderTask.Shared\HoneyRyderTask.Shared.csproj" />
     <ProjectReference Include="..\HoneyRyderTask.UseCase\HoneyRyderTask.UseCase.csproj" />
     <ProjectReference Include="..\HoneyRyderTask.WebAPI\HoneyRyderTask.WebAPI.csproj" />
   </ItemGroup>

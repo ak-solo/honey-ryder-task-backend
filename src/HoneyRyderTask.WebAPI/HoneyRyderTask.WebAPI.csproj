@@ -27,9 +27,6 @@
     <ProjectReference Include="..\HoneyRyderTask.Infrastructure\HoneyRyderTask.Infrastructure.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
-    <ProjectReference Include="..\HoneyRyderTask.Shared\HoneyRyderTask.Shared.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
     <ProjectReference Include="..\HoneyRyderTask.UseCase\HoneyRyderTask.UseCase.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>

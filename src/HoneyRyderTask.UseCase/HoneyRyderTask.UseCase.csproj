@@ -13,7 +13,6 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\HoneyRyderTask.Domain\HoneyRyderTask.Domain.csproj" />
-    <ProjectReference Include="..\HoneyRyderTask.Shared\HoneyRyderTask.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="StyleCop.Analyzers" />
