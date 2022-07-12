@@ -1,4 +1,4 @@
-﻿namespace HoneyRyderTask.Shared.Extensions
+﻿namespace System.Linq
 {
     /// <summary>
     /// IEnumerable（拡張メソッド）

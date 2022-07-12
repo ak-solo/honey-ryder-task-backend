@@ -42,8 +42,6 @@
     <None Remove="Tests\Domain\" />
     <None Remove="Tests\Domain\Models\" />
     <None Remove="Tests\Domain\Models\Shared\" />
-    <None Remove="Tests\Shared\" />
-    <None Remove="Tests\Shared\Extensions\" />
     <None Remove="Tests\Domain\Models\Tasks\" />
     <None Remove="Moq" />
     <None Remove="Tests\UseCase\" />
@@ -58,8 +56,6 @@
     <Folder Include="Tests\Domain\" />
     <Folder Include="Tests\Domain\Models\" />
     <Folder Include="Tests\Domain\Models\Shared\" />
-    <Folder Include="Tests\Shared\" />
-    <Folder Include="Tests\Shared\Extensions\" />
     <Folder Include="Tests\Domain\Models\Tasks\" />
     <Folder Include="Tests\UseCase\" />
     <Folder Include="Tests\UseCase\Services\" />

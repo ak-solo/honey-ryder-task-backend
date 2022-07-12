@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using HoneyRyderTask.Domain.Models.Shared;
-using HoneyRyderTask.Shared.Extensions;
 using Xunit;
 
 namespace HoneyRyderTaskTest.Tests.Domain.Models.Shared

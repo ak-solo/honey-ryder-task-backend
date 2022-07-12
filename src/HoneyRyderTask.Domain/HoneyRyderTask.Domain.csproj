@@ -13,9 +13,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HoneyRyderTask.Shared\HoneyRyderTask.Shared.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <None Remove="StyleCop.Analyzers" />
     <None Remove="Models\" />
     <None Remove="Models\Shared\" />
@@ -25,6 +22,7 @@
     <None Remove="Services\" />
     <None Remove="Services\Shared\" />
     <None Remove="Services\Tasks\" />
+    <None Remove="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
@@ -41,5 +39,6 @@
     <Folder Include="Services\" />
     <Folder Include="Services\Shared\" />
     <Folder Include="Services\Tasks\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
 </Project>

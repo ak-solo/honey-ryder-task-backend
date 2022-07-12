@@ -1,13 +1,12 @@
-﻿using System;
-using HoneyRyderTask.Shared.Extensions;
+﻿using System.Linq;
 using Xunit;
 
-namespace HoneyRyderTaskTest.Tests.Shared.Extensions
+namespace Domain.Extensions
 {
     /// <summary>
     /// IEnumerable（拡張メソッド）- test
     /// </summary>
-    public class IEnumerableExtension
+    public class IEnumerableExtension_Test
     {
         [Fact(DisplayName = "[IsDuplicated()] リスト内の要素に重複があれば true を返す。")]
         public void IsDuplicated_Test1()
