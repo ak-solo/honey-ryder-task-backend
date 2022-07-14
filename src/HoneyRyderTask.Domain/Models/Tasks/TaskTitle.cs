@@ -12,13 +12,9 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// </summary>
         public const int MaxLengh = 30;
 
-        /// <summary>
-        /// タスクタイトルを生成します。
-        /// </summary>
-        /// <param name="value">タスクタイトルとなる文字列を指定します。</param>
-        public TaskTitle(string value)
+        private TaskTitle(string value)
         {
-            this.Validate(value);
+            Validate(value);
             this.Value = value;
         }
 
@@ -28,10 +24,22 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         public string Value { get; }
 
         /// <summary>
+        /// タスクタイトルを生成します。
+        /// </summary>
+        /// <param name="value">タスクタイトルとなる文字列を指定します。</param>
+        /// <returns>
+        /// 生成したタスクタイトルを返します。
+        /// </returns>
+        public static TaskTitle Create(string value)
+        {
+            return new TaskTitle(value);
+        }
+
+        /// <summary>
         /// 値を検証します。
         /// </summary>
         /// <param name="value">値</param>
-        private void Validate(string value)
+        private static void Validate(string value)
         {
             if (value.Length > MaxLengh) throw new MaxLengthException(MaxLengh);
         }

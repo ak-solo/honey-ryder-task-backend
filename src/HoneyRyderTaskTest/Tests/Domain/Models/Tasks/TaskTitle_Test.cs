@@ -9,40 +9,40 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
     /// </summary>
     public class TaskTitle_Test
     {
-        [Fact(DisplayName = "[TaskTitle(vlaue)] 指定した値でタスクタイトルを生成できる")]
-        public void TaskTitle_Test1()
+        [Fact(DisplayName = "[Create(vlaue)] 指定した値でタスクタイトルを生成できる")]
+        public void Create_Test1()
         {
             // arrange
             var value = "タスクタイトル";
 
             // act
-            var title = new TaskTitle(value);
+            var title = TaskTitle.Create(value);
 
             // assert
             Assert.Equal(value, title.Value);
         }
 
-        [Fact(DisplayName = "[TaskTitle(value)] 30文字以下であればタスクタイトルを生成できる")]
-        public void TaskTitle_Test2()
+        [Fact(DisplayName = "[Create(value)] 30文字以下であればタスクタイトルを生成できる")]
+        public void Create_Test2()
         {
             // arrange
             var value = new string('あ', 30); // 30文字
 
             // act
-            var title = new TaskTitle(value);
+            var title = TaskTitle.Create(value);
 
             // assert
             Assert.Equal(value, title.Value);
         }
 
-        [Fact(DisplayName = "[TaskTitle(value)] 30文字を超える場合は例外がスローされる")]
-        public void TaskTitle_Test3()
+        [Fact(DisplayName = "[Create(value)] 30文字を超える場合は例外がスローされる")]
+        public void Create_Test3()
         {
             // arrange
             var value = new string('あ', 31); // 31文字
 
             // act
-            var act = () => new TaskTitle(value);
+            var act = () => TaskTitle.Create(value);
 
             // assert
             Assert.Throws<MaxLengthException>(act);
@@ -53,8 +53,8 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
         {
             // arrange
             var value = "タスクタイトル";
-            var title1 = new TaskTitle(value);
-            var title2 = new TaskTitle(value);
+            var title1 = TaskTitle.Create(value);
+            var title2 = TaskTitle.Create(value);
 
             // act
             var actual = title1 == title2;

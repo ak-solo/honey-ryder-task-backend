@@ -27,7 +27,7 @@ namespace HoneyRyderTask.Domain.Services.Tasks
         /// <returns>タスク</returns>
         public Task Create(TaskCreateParam param)
         {
-            var title = new TaskTitle(param.Title);
+            var title = TaskTitle.Create(param.Title);
             var description = new TaskDescription(param.Description);
             var dueDate = param.DueDate != null
                 ? new TaskDueDate(param.DueDate.Value)
