@@ -11,27 +11,27 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
     /// </summary>
     public class TaskCreationDate_Test
     {
-        [Fact(DisplayName = "[TaskCreationDate(value)] 指定した値でタスク期限を生成できる")]
-        public void TaskCreationDate_Test1()
+        [Fact(DisplayName = "[Create(value)] 指定した値でタスク期限を生成できる")]
+        public void Create_Test1()
         {
             // arrange
             var value = new DateTime(2022, 1, 1);
 
             // act
-            var creationDate = new TaskCreationDate(value);
+            var creationDate = TaskCreationDate.Create(value);
 
             // assert
             Assert.Equal(value, creationDate.Value);
         }
 
-        [Fact(DisplayName = "[TaskCreationDate(value)] 指定した値の時間部分は丸めて日付のみでタスク期限を生成する")]
-        public void TaskCreationDate_Test2()
+        [Fact(DisplayName = "[Create(value)] 指定した値の時間部分は丸めて日付のみでタスク期限を生成する")]
+        public void Create_Test2()
         {
             // arrange
             var value = new DateTime(2022, 1, 1, 12, 30, 45);
 
             // act
-            var creationDate = new TaskCreationDate(value);
+            var creationDate = TaskCreationDate.Create(value);
 
             // assert
             Assert.NotEqual(value, creationDate.Value);     // 時間を含めると不一致
@@ -43,8 +43,8 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
         {
             // arrange
             var value = new DateTime(2022, 1, 1);
-            var creationDate1 = new TaskCreationDate(value);
-            var creationDate2 = new TaskCreationDate(value);
+            var creationDate1 = TaskCreationDate.Create(value);
+            var creationDate2 = TaskCreationDate.Create(value);
 
             // act
             var actual = creationDate1 == creationDate2;

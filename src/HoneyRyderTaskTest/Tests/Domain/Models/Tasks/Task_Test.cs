@@ -116,7 +116,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             var description = TaskDescription.Create("タスク説明");
             var status = TaskStatus.NotStarted;
             var dueDate = TaskDueDate.Create(new DateTime(2022, 3, 31));
-            var createdDate = new TaskCreationDate(new DateTime(2022, 1, 1));
+            var createdDate = TaskCreationDate.Create(new DateTime(2022, 1, 1));
             var completedDate = new TaskCompletionDate(new DateTime(2022, 2, 1));
 
             // act

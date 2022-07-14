@@ -39,7 +39,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         public static TaskDueDate? CreateNullable(DateTime? value)
         {
             if (value == null) return null;
-            return new TaskDueDate(value.GetValueOrDefault());
+            return TaskDueDate.Create(value.GetValueOrDefault());
         }
     }
 }
