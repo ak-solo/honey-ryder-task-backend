@@ -10,27 +10,27 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
     /// </summary>
     public class TaskId_Test
     {
-        [Fact(DisplayName = "[TaskId(value)] 指定した値でタスクIDを生成できる")]
-        public void TaskId_Test1()
+        [Fact(DisplayName = "[Create(value)] 指定した値でタスクIDを生成できる")]
+        public void Create_Test1()
         {
             // arrange
             var value = "01D0KDBRASGD5HRSNDCKA0AH53";
 
             // act
-            var id = new TaskId(value);
+            var id = TaskId.Create(value);
 
             // assert
             Assert.Equal(value, id.Value);
         }
 
-        [Fact(DisplayName = "[TaskId(value)] 指定した値がULID形式でない場合は例外を投げる")]
-        public void TaskId_Test2()
+        [Fact(DisplayName = "[Create(value)] 指定した値がULID形式でない場合は例外を投げる")]
+        public void Create_Test2()
         {
             // arrange
             var value = "01D0KDBRASGD5HRSNDCKA0AH5";    // 25文字（ULIDは26文字）
 
             // act
-            var action = () => new TaskId(value);
+            var action = () => TaskId.Create(value);
 
             // assert
             Assert.Throws<UlidFormatException>(action);
@@ -51,8 +51,8 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
         {
             // arrange
             var value = "01D0KDBRASGD5HRSNDCKA0AH53";
-            var id1 = new TaskId(value);
-            var id2 = new TaskId(value);
+            var id1 = TaskId.Create(value);
+            var id2 = TaskId.Create(value);
 
             // act
             var actual = id1 == id2;

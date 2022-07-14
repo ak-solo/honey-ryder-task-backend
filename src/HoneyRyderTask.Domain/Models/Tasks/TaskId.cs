@@ -13,13 +13,9 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// </summary>
         public const int MaxLengh = 26;
 
-        /// <summary>
-        /// タスクIDを生成します。
-        /// </summary>
-        /// <param name="value">ULID形式の文字列を指定します。</param>
-        public TaskId(string value)
+        private TaskId(string value)
         {
-            this.Validate(value);
+            Validate(value);
             this.Value = value;
         }
 
@@ -27,6 +23,18 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// タスクID
         /// </summary>
         public string Value { get; }
+
+        /// <summary>
+        /// タスクIDを生成します。
+        /// </summary>
+        /// <param name="value">ULID形式の文字列を指定します。</param>
+        /// <returns>
+        /// 生成したタスクIDを返します。
+        /// </returns>
+        public static TaskId Create(string value)
+        {
+            return new TaskId(value);
+        }
 
         /// <summary>
         /// タスクIDを新規採番します。
@@ -42,7 +50,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// <summary>
         /// 値を検証します。
         /// </summary>
-        private void Validate(string value)
+        private static void Validate(string value)
         {
             if (!ULID.IsULID(value)) throw new UlidFormatException();
         }
