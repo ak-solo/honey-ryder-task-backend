@@ -7,11 +7,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
     /// </summary>
     public record TaskDueDate
     {
-        /// <summary>
-        /// タスク期限を生成します。
-        /// </summary>
-        /// <param name="value">タスク期限となる値を指定します。</param>
-        public TaskDueDate(DateTime value)
+        private TaskDueDate(DateTime value)
         {
             this.Value = value.Date;
         }
@@ -20,5 +16,30 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// タスク期限
         /// </summary>
         public DateTime Value { get; }
+
+        /// <summary>
+        /// タスク期限を生成します。
+        /// </summary>
+        /// <param name="value">タスク期限となる値を指定します。</param>
+        /// <returns>
+        /// 生成したタスク期限を返します。
+        /// </returns>
+        public static TaskDueDate Create(DateTime value)
+        {
+            return new TaskDueDate(value);
+        }
+
+        /// <summary>
+        /// タスク期限を生成します。
+        /// </summary>
+        /// <param name="value">タスク期限となる値を指定します。</param>
+        /// <returns>
+        /// 生成したタスク期限を返します。
+        /// </returns>
+        public static TaskDueDate? CreateNullable(DateTime? value)
+        {
+            if (value == null) return null;
+            return new TaskDueDate(value.GetValueOrDefault());
+        }
     }
 }
