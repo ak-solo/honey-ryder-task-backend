@@ -117,7 +117,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             var status = TaskStatus.NotStarted;
             var dueDate = TaskDueDate.Create(new DateTime(2022, 3, 31));
             var createdDate = TaskCreationDate.Create(new DateTime(2022, 1, 1));
-            var completedDate = new TaskCompletionDate(new DateTime(2022, 2, 1));
+            var completedDate = TaskCompletionDate.Create(new DateTime(2022, 2, 1));
 
             // act
             var task = Task.Reconstruct(
