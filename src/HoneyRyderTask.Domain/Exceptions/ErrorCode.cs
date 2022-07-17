@@ -14,5 +14,10 @@
         /// 指定の値がULID形式でない場合にスローされる例外。
         /// </summary>
         UlidFormatException = 1001,
+
+        /// <summary>
+        /// データ見つからない場合にスローされる例外。
+        /// </summary>
+        DataNotFoundException = 1002,
     }
 }
