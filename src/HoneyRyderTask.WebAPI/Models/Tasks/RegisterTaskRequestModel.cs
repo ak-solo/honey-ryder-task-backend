@@ -6,7 +6,7 @@ namespace HoneyRyderTask.WebAPI.Models.Tasks
     /// <summary>
     /// タスク登録リクエスト
     /// </summary>
-    public class RegisterTaskRequest
+    public class RegisterTaskRequestModel
     {
         /// <summary>
         /// タスクタイトル
