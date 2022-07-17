@@ -54,6 +54,10 @@
     <None Remove="Builders\Entities\" />
     <None Remove="Builders\Domain\Models\" />
     <None Remove="Builders\Domain\Models\Tasks\" />
+    <None Remove="Tests\Infrastructure\" />
+    <None Remove="Tests\Infrastructure\PostgreSQL\" />
+    <None Remove="Tests\Infrastructure\PostgreSQL\Repositories\" />
+    <None Remove="Tests\Infrastructure\PostgreSQL\Repositories\Tasks\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Tests\" />
@@ -72,5 +76,9 @@
     <Folder Include="Builders\Domain\" />
     <Folder Include="Builders\Domain\Models\" />
     <Folder Include="Builders\Domain\Models\Tasks\" />
+    <Folder Include="Tests\Infrastructure\" />
+    <Folder Include="Tests\Infrastructure\PostgreSQL\" />
+    <Folder Include="Tests\Infrastructure\PostgreSQL\Repositories\" />
+    <Folder Include="Tests\Infrastructure\PostgreSQL\Repositories\Tasks\" />
   </ItemGroup>
 </Project>
