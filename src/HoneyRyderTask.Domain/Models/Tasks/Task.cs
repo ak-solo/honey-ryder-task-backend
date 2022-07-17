@@ -113,5 +113,23 @@ namespace HoneyRyderTask.Domain.Models.Tasks
                 creationDate,
                 completionDate);
         }
+
+        /// <summary>
+        /// タスク状態を変更します。
+        /// </summary>
+        /// <param name="status">タスク状態</param>
+        /// <param name="dateTimeProvider">日付プロバイダー</param>
+        public void ChangeStatus(TaskStatus status, IDateTimeProvider dateTimeProvider)
+        {
+            this.Status = status;
+            if (status == TaskStatus.Completed)
+            {
+                this.CompletionDate = TaskCompletionDate.CreateWithCurrentDate(dateTimeProvider);
+            }
+            else
+            {
+                this.CompletionDate = null;
+            }
+        }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
+using HoneyRyderTask.Domain.Models.Shared;
 using HoneyRyderTask.Domain.Models.Tasks;
+using Moq;
 using Xunit;
 
 namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
@@ -76,6 +78,22 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
 
             // assert
             Assert.True(actual);
+        }
+
+        [Fact(DisplayName = "[CreateWithCurrentDate()] 現在日付でタスク期限を生成できる")]
+        public void CreateWithCurrentDate_Test1()
+        {
+            // arrange
+            var value = new DateTime(2022, 1, 1);
+            var mock = new Mock<IDateTimeProvider>();
+            mock.Setup(x => x.GetCurrentDate()).Returns(() => value);
+            var dateTimeProvider = mock.Object;
+
+            // act
+            var creationDate = TaskCompletionDate.CreateWithCurrentDate(dateTimeProvider);
+
+            // assert
+            Assert.Equal(value, creationDate.Value);
         }
     }
 }

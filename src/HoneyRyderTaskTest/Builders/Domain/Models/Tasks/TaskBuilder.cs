@@ -11,7 +11,7 @@ namespace HoneyRyderTaskTest.Builders.Domain.Models.Tasks
         private string id = "01D0KDBRASGD5HRSNDCKA0AH53";
         private string title = "タスクタイトル";
         private string description = "タスク説明";
-        private int status = TaskStatus.NotStarted.Value;
+        private int status = TaskStatus.Completed.Value;
         private DateTime? dueDate = new DateTime(2022, 3, 31);
         private DateTime creationDate = new DateTime(2022, 1, 1);
         private DateTime? completionDate = new DateTime(2022, 4, 1);

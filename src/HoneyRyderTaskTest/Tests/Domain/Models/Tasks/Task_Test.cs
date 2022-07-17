@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using HoneyRyderTask.Domain.Models.Shared;
 using HoneyRyderTask.Domain.Models.Tasks;
 using HoneyRyderTask.Domain.Services.Shared;
+using HoneyRyderTaskTest.Builders.Domain.Models.Tasks;
 using Moq;
 using Xunit;
 
@@ -12,6 +14,12 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
     /// </summary>
     public class Task_Test
     {
+        public static IEnumerable<object[]> TestData_ChangeStatus_Test2()
+        {
+            yield return new object[] { TaskStatus.NotStarted };
+            yield return new object[] { TaskStatus.Started };
+        }
+
         [Fact(DisplayName = "[Create()] 指定した値でタスクを生成できる。")]
         public void Create_Test1()
         {
@@ -137,6 +145,50 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             Assert.Equal(dueDate, task.DueDate);
             Assert.Equal(createdDate, task.CreationDate);
             Assert.Equal(completedDate, task.CompletionDate);
+        }
+
+        [Fact(DisplayName = "[ChangeStatus()] タスク状態：完了に変更した場合、タスク完了日には現在日付が設定される。")]
+        public void ChangeStatus_Test1()
+        {
+            // arrange
+            var currentDate = new DateTime(2022, 1, 1);
+            var mock = new Mock<IDateTimeProvider>();
+            mock.Setup(x => x.GetCurrentDate()).Returns(() => currentDate);
+            var dateTimeProvider = mock.Object;
+            var task = new TaskBuilder()
+                .WithStatus(TaskStatus.NotStarted.Value)
+                .WithCompletionDate(null)
+                .Build();
+
+            // act
+            task.ChangeStatus(TaskStatus.Completed, dateTimeProvider);
+
+            // assert
+            Assert.Equal(TaskStatus.Completed, task.Status);
+            Assert.NotNull(task.CompletionDate);
+            Assert.Equal(currentDate, task.CompletionDate?.Value);
+        }
+
+        [Theory(DisplayName = "[ChangeStatus()] タスク状態：完了以外に変更した場合、タスク完了日がクリアされる。")]
+        [MemberData(nameof(TestData_ChangeStatus_Test2))]
+        public void ChangeStatus_Test2(TaskStatus status)
+        {
+            // arrange
+            var currentDate = new DateTime(2022, 1, 1);
+            var mock = new Mock<IDateTimeProvider>();
+            mock.Setup(x => x.GetCurrentDate()).Returns(() => currentDate);
+            var dateTimeProvider = mock.Object;
+            var task = new TaskBuilder()
+                .WithStatus(TaskStatus.Completed.Value)
+                .WithCompletionDate(new DateTime(2022, 4, 1))
+                .Build();
+
+            // act
+            task.ChangeStatus(status, dateTimeProvider);
+
+            // assert
+            Assert.Equal(status, task.Status);
+            Assert.Null(task.CompletionDate);
         }
     }
 }

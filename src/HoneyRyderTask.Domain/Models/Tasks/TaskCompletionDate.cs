@@ -1,4 +1,6 @@
-﻿namespace HoneyRyderTask.Domain.Models.Tasks
+﻿using HoneyRyderTask.Domain.Models.Shared;
+
+namespace HoneyRyderTask.Domain.Models.Tasks
 {
     /// <summary>
     /// タスク完了日
@@ -38,6 +40,16 @@
         {
             if (value == null) return null;
             return Create(value.GetValueOrDefault());
+        }
+
+        /// <summary>
+        /// 現在日付でタスク完了日を生成します。
+        /// </summary>
+        /// <param name="dateTimeProvider">日付プロバイダー</param>
+        /// <returns>タスク完了日</returns>
+        public static TaskCompletionDate CreateWithCurrentDate(IDateTimeProvider dateTimeProvider)
+        {
+            return new TaskCompletionDate(dateTimeProvider.GetCurrentDate());
         }
     }
 }
