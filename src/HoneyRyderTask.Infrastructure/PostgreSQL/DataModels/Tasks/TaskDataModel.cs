@@ -26,17 +26,17 @@ namespace HoneyRyderTask.Infrastructure.PostgreSQL.DataModels.Tasks
         public string Title { get; set; } = default!;
 
         /// <summary>
-        /// タスク状態
-        /// </summary>
-        [Column("status")]
-        public int Status { get; set; }
-
-        /// <summary>
         /// タスク説明
         /// </summary>
         [Column("description")]
         [StringLength(Domain.Models.Tasks.TaskDescription.MaxLength)]
-        public string? Description { get; set; }
+        public string Description { get; set; } = default!;
+
+        /// <summary>
+        /// タスク状態
+        /// </summary>
+        [Column("status")]
+        public int Status { get; set; }
 
         /// <summary>
         /// タスク期限

@@ -18,8 +18,8 @@ namespace HoneyRyderTask.Infrastructure.Migrations
                 {
                     task_id = table.Column<string>(type: "character varying(26)", maxLength: 26, nullable: false),
                     title = table.Column<string>(type: "character varying(30)", maxLength: 30, nullable: false),
+                    description = table.Column<string>(type: "character varying(1000)", maxLength: 1000, nullable: false),
                     status = table.Column<int>(type: "integer", nullable: false),
-                    description = table.Column<string>(type: "character varying(1000)", maxLength: 1000, nullable: true),
                     due_date = table.Column<DateTime>(type: "Date", nullable: true),
                     creation_date = table.Column<DateTime>(type: "Date", nullable: false),
                     completion_date = table.Column<DateTime>(type: "Date", nullable: true),
