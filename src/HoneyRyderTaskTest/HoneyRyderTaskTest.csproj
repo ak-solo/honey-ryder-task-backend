@@ -49,6 +49,10 @@
     <None Remove="Tests\UseCase\Services\Tasks\RegisterTask\" />
     <None Remove="Tests\Domain\Services\" />
     <None Remove="Tests\Domain\Services\Tasks\" />
+    <None Remove="Builders\" />
+    <None Remove="Builders\Entities\" />
+    <None Remove="Builders\Domain\Models\" />
+    <None Remove="Builders\Domain\Models\Tasks\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Tests\" />
@@ -62,5 +66,9 @@
     <Folder Include="Tests\UseCase\Services\Tasks\RegisterTask\" />
     <Folder Include="Tests\Domain\Services\" />
     <Folder Include="Tests\Domain\Services\Tasks\" />
+    <Folder Include="Builders\" />
+    <Folder Include="Builders\Domain\" />
+    <Folder Include="Builders\Domain\Models\" />
+    <Folder Include="Builders\Domain\Models\Tasks\" />
   </ItemGroup>
 </Project>
