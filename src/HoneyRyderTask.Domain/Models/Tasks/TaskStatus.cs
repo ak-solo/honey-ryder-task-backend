@@ -1,23 +1,33 @@
-﻿namespace HoneyRyderTask.Domain.Models.Tasks
+﻿using System.Reflection;
+using HoneyRyderTask.Domain.Models.Shared;
+
+#pragma warning disable SA1401
+
+namespace HoneyRyderTask.Domain.Models.Tasks
 {
     /// <summary>
     /// タスク状態
     /// </summary>
-    public enum TaskStatus
+    public record TaskStatus : TypeSafeEnum<TaskStatus>
     {
         /// <summary>
         /// 未着手
         /// </summary>
-        NotStarted = 1,
+        public static TaskStatus NotStarted = new TaskStatus(value: 1);
 
         /// <summary>
         /// 着手
         /// </summary>
-        Started = 2,
+        public static TaskStatus Started = new TaskStatus(value: 2);
 
         /// <summary>
         /// 完了
         /// </summary>
-        Completed = 3,
+        public static TaskStatus Completed = new TaskStatus(value: 3);
+
+        private TaskStatus(int value)
+            : base(value)
+        {
+        }
     }
 }

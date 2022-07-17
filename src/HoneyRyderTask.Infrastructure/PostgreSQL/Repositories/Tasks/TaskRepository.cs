@@ -1,5 +1,6 @@
 ﻿using HoneyRyderTask.Domain.Models.Tasks;
 using HoneyRyderTask.Infrastructure.PostgreSQL.DataModels.Tasks;
+using TaskStatus = HoneyRyderTask.Domain.Models.Tasks.TaskStatus;
 
 namespace HoneyRyderTask.Infrastructure.PostgreSQL.Repositories.Tasks
 {
@@ -37,7 +38,7 @@ namespace HoneyRyderTask.Infrastructure.PostgreSQL.Repositories.Tasks
                 TaskId = task.Id.Value,
                 Title = task.Title.Value,
                 Description = task.Description.Value,
-                Status = (int)task.Status,
+                Status = task.Status.Value,
                 DueDate = task.DueDate?.Value,
                 CreationDate = task.CreationDate.Value,
                 CompletionDate = task.CompletionDate?.Value,
