@@ -19,6 +19,7 @@
     <None Remove="Services\" />
     <None Remove="Services\Tasks\" />
     <None Remove="Helpers\" />
+    <None Remove="Services\Tasks\GetTask\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
@@ -30,5 +31,6 @@
     <Folder Include="Services\" />
     <Folder Include="Services\Tasks\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Services\Tasks\GetTask\" />
   </ItemGroup>
 </Project>
