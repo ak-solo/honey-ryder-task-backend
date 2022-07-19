@@ -126,6 +126,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             var dueDate = TaskDueDate.Create(new DateTime(2022, 3, 31));
             var createdDate = TaskCreationDate.Create(new DateTime(2022, 1, 1));
             var completedDate = TaskCompletionDate.Create(new DateTime(2022, 2, 1));
+            var dateTimeProvider = new DefaultDateTimeProvider();
 
             // act
             var task = Task.Reconstruct(
@@ -135,7 +136,8 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
                 status,
                 dueDate,
                 createdDate,
-                completedDate);
+                completedDate,
+                dateTimeProvider);
 
             // assert
             Assert.Equal(id, task.Id);
@@ -158,10 +160,11 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             var task = new TaskBuilder()
                 .WithStatus(TaskStatus.NotStarted.Value)
                 .WithCompletionDate(null)
+                .WithDateTimeProvider(dateTimeProvider)
                 .Build();
 
             // act
-            task.ChangeStatus(TaskStatus.Completed, dateTimeProvider);
+            task.ChangeStatus(TaskStatus.Completed);
 
             // assert
             Assert.Equal(TaskStatus.Completed, task.Status);
@@ -174,17 +177,13 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
         public void ChangeStatus_Test2(TaskStatus status)
         {
             // arrange
-            var currentDate = new DateTime(2022, 1, 1);
-            var mock = new Mock<IDateTimeProvider>();
-            mock.Setup(x => x.GetCurrentDate()).Returns(() => currentDate);
-            var dateTimeProvider = mock.Object;
             var task = new TaskBuilder()
                 .WithStatus(TaskStatus.Completed.Value)
                 .WithCompletionDate(new DateTime(2022, 4, 1))
                 .Build();
 
             // act
-            task.ChangeStatus(status, dateTimeProvider);
+            task.ChangeStatus(status);
 
             // assert
             Assert.Equal(status, task.Status);

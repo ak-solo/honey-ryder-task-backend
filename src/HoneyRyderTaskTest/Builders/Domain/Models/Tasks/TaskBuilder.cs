@@ -1,5 +1,7 @@
 ﻿using System;
+using HoneyRyderTask.Domain.Models.Shared;
 using HoneyRyderTask.Domain.Models.Tasks;
+using HoneyRyderTask.Domain.Services.Shared;
 
 namespace HoneyRyderTaskTest.Builders.Domain.Models.Tasks
 {
@@ -15,6 +17,7 @@ namespace HoneyRyderTaskTest.Builders.Domain.Models.Tasks
         private DateTime? dueDate = new DateTime(2022, 3, 31);
         private DateTime creationDate = new DateTime(2022, 1, 1);
         private DateTime? completionDate = new DateTime(2022, 4, 1);
+        private IDateTimeProvider dateTimeProvider = new DefaultDateTimeProvider();
 
         public TaskBuilder WithId(string id)
         {
@@ -58,6 +61,12 @@ namespace HoneyRyderTaskTest.Builders.Domain.Models.Tasks
             return this;
         }
 
+        public TaskBuilder WithDateTimeProvider(IDateTimeProvider dateTimeProvider)
+        {
+            this.dateTimeProvider = dateTimeProvider;
+            return this;
+        }
+
         public Task Build()
         {
             return Task.Reconstruct(
@@ -67,7 +76,8 @@ namespace HoneyRyderTaskTest.Builders.Domain.Models.Tasks
                 status: TaskStatus.GetItem(this.status),
                 dueDate: TaskDueDate.CreateNullable(this.dueDate),
                 creationDate: TaskCreationDate.Create(this.creationDate),
-                completionDate: TaskCompletionDate.CreateNullable(this.completionDate));
+                completionDate: TaskCompletionDate.CreateNullable(this.completionDate),
+                dateTimeProvider: this.dateTimeProvider);
         }
     }
 }

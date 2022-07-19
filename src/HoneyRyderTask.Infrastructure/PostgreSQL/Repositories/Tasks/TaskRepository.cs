@@ -1,4 +1,5 @@
-﻿using HoneyRyderTask.Domain.Models.Tasks;
+﻿using HoneyRyderTask.Domain.Models.Shared;
+using HoneyRyderTask.Domain.Models.Tasks;
 using HoneyRyderTask.Infrastructure.PostgreSQL.DataModels.Tasks;
 using Task = HoneyRyderTask.Domain.Models.Tasks.Task;
 using TaskStatus = HoneyRyderTask.Domain.Models.Tasks.TaskStatus;
@@ -11,14 +12,19 @@ namespace HoneyRyderTask.Infrastructure.PostgreSQL.Repositories.Tasks
     public class TaskRepository : ITaskRepository
     {
         private readonly HoneyRyderTaskDbContext context;
+        private readonly IDateTimeProvider dateTimeProvider;
 
         /// <summary>
         /// タスクリポジトリを生成します。
         /// </summary>
         /// <param name="context">DBコンテキスト</param>
-        public TaskRepository(HoneyRyderTaskDbContext context)
+        /// <param name="dateTimeProvider">日付プロバイダー</param>
+        public TaskRepository(
+            HoneyRyderTaskDbContext context,
+            IDateTimeProvider dateTimeProvider)
         {
             this.context = context;
+            this.dateTimeProvider = dateTimeProvider;
         }
 
         /// <summary>
@@ -30,7 +36,7 @@ namespace HoneyRyderTask.Infrastructure.PostgreSQL.Repositories.Tasks
         {
             var data = this.context.Tasks.Find(taskId.Value);
             if (data == null) return null;
-            return ToDomainModel(data);
+            return ToDomainModel(data, this.dateTimeProvider);
         }
 
         /// <summary>
@@ -44,7 +50,7 @@ namespace HoneyRyderTask.Infrastructure.PostgreSQL.Repositories.Tasks
             this.context.SaveChanges();
         }
 
-        private static Task ToDomainModel(TaskDataModel data)
+        private static Task ToDomainModel(TaskDataModel data, IDateTimeProvider dateTimeProvider)
         {
             return Task.Reconstruct(
                 id: TaskId.Create(data.TaskId),
@@ -53,7 +59,8 @@ namespace HoneyRyderTask.Infrastructure.PostgreSQL.Repositories.Tasks
                 status: TaskStatus.GetItem(data.Status),
                 dueDate: TaskDueDate.CreateNullable(data.DueDate),
                 creationDate: TaskCreationDate.Create(data.CreationDate),
-                completionDate: TaskCompletionDate.CreateNullable(data.CompletionDate));
+                completionDate: TaskCompletionDate.CreateNullable(data.CompletionDate),
+                dateTimeProvider: dateTimeProvider);
         }
 
         private static TaskDataModel ToDataModel(Task task)

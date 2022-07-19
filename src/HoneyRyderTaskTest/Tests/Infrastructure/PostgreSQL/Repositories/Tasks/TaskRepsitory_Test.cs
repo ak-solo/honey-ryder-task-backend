@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Transactions;
 using HoneyRyderTask.Domain.Models.Tasks;
+using HoneyRyderTask.Domain.Services.Shared;
 using HoneyRyderTask.Infrastructure.PostgreSQL;
 using HoneyRyderTask.Infrastructure.PostgreSQL.Repositories.Tasks;
 using HoneyRyderTaskTest.Builders.Domain.Models.Tasks;
@@ -19,7 +20,7 @@ namespace HoneyRyderTaskTest.Tests.Infrastructure.PostgreSQL.Repositories.Tasks
             // arrange
             using var scope = new TransactionScope();       // テスト終了後にロールバックされるようにトランザクションを開始しておく。
             var context = new HoneyRyderTaskDbContext();
-            var repository = new TaskRepository(context);
+            var repository = new TaskRepository(context, new DefaultDateTimeProvider());
             var task = new TaskBuilder().Build();
             repository.Add(task);
 
@@ -42,7 +43,7 @@ namespace HoneyRyderTaskTest.Tests.Infrastructure.PostgreSQL.Repositories.Tasks
             // arrange
             using var scope = new TransactionScope();       // テスト終了後にロールバックされるようにトランザクションを開始しておく。
             var context = new HoneyRyderTaskDbContext();
-            var repository = new TaskRepository(context);
+            var repository = new TaskRepository(context, new DefaultDateTimeProvider());
             var targetId = TaskId.Create("01G85WHT1VCHA4ATBSH6NPS19M");
             var task = new TaskBuilder().Build();
             repository.Add(task);
@@ -61,7 +62,7 @@ namespace HoneyRyderTaskTest.Tests.Infrastructure.PostgreSQL.Repositories.Tasks
             // arrange
             using var scope = new TransactionScope();       // テスト終了後にロールバックされるようにトランザクションを開始しておく。
             var context = new HoneyRyderTaskDbContext();
-            var repository = new TaskRepository(context);
+            var repository = new TaskRepository(context, new DefaultDateTimeProvider());
             var task = new TaskBuilder().Build();
 
             // act

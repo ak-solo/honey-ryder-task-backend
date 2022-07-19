@@ -7,6 +7,8 @@ namespace HoneyRyderTask.Domain.Models.Tasks
     /// </summary>
     public class Task
     {
+        private readonly IDateTimeProvider dateTimeProvider;
+
         private Task(
             TaskId id,
             TaskTitle title,
@@ -14,7 +16,8 @@ namespace HoneyRyderTask.Domain.Models.Tasks
             TaskStatus status,
             TaskDueDate? dueDate,
             TaskCreationDate creationDate,
-            TaskCompletionDate? completionDate)
+            TaskCompletionDate? completionDate,
+            IDateTimeProvider dateTimeProvider)
         {
             this.Id = id;
             this.Title = title;
@@ -23,6 +26,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
             this.Status = status;
             this.CreationDate = creationDate;
             this.CompletionDate = completionDate;
+            this.dateTimeProvider = dateTimeProvider;
         }
 
         /// <summary>
@@ -81,7 +85,8 @@ namespace HoneyRyderTask.Domain.Models.Tasks
                 status: TaskStatus.NotStarted,
                 dueDate,
                 creationDate: TaskCreationDate.CreateWithCurrentDate(dateTimeProvider),
-                completionDate: null);
+                completionDate: null,
+                dateTimeProvider);
         }
 
         /// <summary>
@@ -94,6 +99,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// <param name="dueDate">タスク期限</param>
         /// <param name="creationDate">タスク作成日</param>
         /// <param name="completionDate">タスク完了日</param>
+        /// <param name="dateTimeProvider">日付プロバイダー</param>
         /// <returns>タスク</returns>
         public static Task Reconstruct(
             TaskId id,
@@ -102,7 +108,8 @@ namespace HoneyRyderTask.Domain.Models.Tasks
             TaskStatus status,
             TaskDueDate? dueDate,
             TaskCreationDate creationDate,
-            TaskCompletionDate? completionDate)
+            TaskCompletionDate? completionDate,
+            IDateTimeProvider dateTimeProvider)
         {
             return new Task(
                 id,
@@ -111,20 +118,20 @@ namespace HoneyRyderTask.Domain.Models.Tasks
                 status,
                 dueDate,
                 creationDate,
-                completionDate);
+                completionDate,
+                dateTimeProvider);
         }
 
         /// <summary>
         /// タスク状態を変更します。
         /// </summary>
         /// <param name="status">タスク状態</param>
-        /// <param name="dateTimeProvider">日付プロバイダー</param>
-        public void ChangeStatus(TaskStatus status, IDateTimeProvider dateTimeProvider)
+        public void ChangeStatus(TaskStatus status)
         {
             this.Status = status;
             if (status == TaskStatus.Completed)
             {
-                this.CompletionDate = TaskCompletionDate.CreateWithCurrentDate(dateTimeProvider);
+                this.CompletionDate = TaskCompletionDate.CreateWithCurrentDate(this.dateTimeProvider);
             }
             else
             {
