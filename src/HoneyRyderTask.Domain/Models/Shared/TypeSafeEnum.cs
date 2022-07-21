@@ -29,11 +29,22 @@ namespace HoneyRyderTask.Domain.Models.Shared
         /// <param name="value">値</param>
         /// <returns>指定した値に該当するアイテムを返します。</returns>
         /// <exception cref="ArgumentException">指定した値に該当するアイテムが存在しない場合に例外が投げられます。</exception>
-        public static T GetItem(int value)
+        public static T ValueOf(int value)
         {
             var item = GetItems().SingleOrDefault(t => t.Value == value);
             if (item == null) throw new KeyNotFoundException();
             return item;
+        }
+
+        /// <summary>
+        /// 指定した値に該当するアイテムを取得します。
+        /// </summary>
+        /// <param name="value">値</param>
+        /// <returns>指定した値に該当するアイテムを返します。</returns>
+        public static T? NullableValueOf(int? value)
+        {
+            if (value == null) return null;
+            return ValueOf(value.GetValueOrDefault());
         }
 
         /// <summary>

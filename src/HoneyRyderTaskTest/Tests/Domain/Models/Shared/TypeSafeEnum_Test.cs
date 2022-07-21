@@ -27,30 +27,56 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Shared
             }
         }
 
-        [Fact(DisplayName = "[GetItem(value)] 指定した値に該当するアイテムが取得できる。")]
-        public void GetItem_Test1()
+        [Fact(DisplayName = "ValueOf: 指定した値に該当するアイテムを取得できる。")]
+        public void ValueOf_Test1()
         {
             // arrange
             var value = 1;
 
             // act
-            var actual = TestTypeSafeEnum.GetItem(value);     // 抽象クラスのテストである為、テスト用に作成した実装クラスを使用する。
+            var actual = TestTypeSafeEnum.ValueOf(value);     // 抽象クラスのテストである為、テスト用に作成した実装クラスを使用する。
 
             // assert
-            Assert.Equal(actual, TestTypeSafeEnum.Item1);
+            Assert.Equal(TestTypeSafeEnum.Item1, actual);
         }
 
-        [Fact(DisplayName = "[GetItem(value)] 指定した値に該当するアイテムが存在しない場合は例外が投げられる。")]
-        public void GetItem_Test2()
+        [Fact(DisplayName = "ValueOf: 指定した値に該当するアイテムが存在しない場合は例外が投げられる。")]
+        public void ValueOf_Test2()
         {
             // arrange
             var value = 4;
 
             // act
-            var act = () => TestTypeSafeEnum.GetItem(value);  // 抽象クラスのテストである為、テスト用に作成した実装クラスを使用する。
+            var act = () => TestTypeSafeEnum.ValueOf(value);  // 抽象クラスのテストである為、テスト用に作成した実装クラスを使用する。
 
             // assert
             Assert.Throws<KeyNotFoundException>(act);
+        }
+
+        [Fact(DisplayName = "NullableValueOf: 指定した値に該当するアイテムを取得できる")]
+        public void NullableValueOf_Test1()
+        {
+            // arrange
+            var value = 1;
+
+            // act
+            var actual = TestTypeSafeEnum.NullableValueOf(value);   // 抽象クラスのテストである為、テスト用に作成した実装クラスを使用する。
+
+            // assert
+            Assert.Equal(TestTypeSafeEnum.Item1, actual);
+        }
+
+        [Fact(DisplayName = "NullableValueOf: NULLを指定した場合はNULLを返す。")]
+        public void NullableValueOf_Test2()
+        {
+            // arrange
+            int? value = null;
+
+            // act
+            var actual = TestTypeSafeEnum.NullableValueOf(value);   // 抽象クラスのテストである為、テスト用に作成した実装クラスを使用する。
+
+            // assert
+            Assert.Null(actual);
         }
 
         [Fact(DisplayName = "[GetItems()] 定義してあるアイテムを全て取得できる。")]
