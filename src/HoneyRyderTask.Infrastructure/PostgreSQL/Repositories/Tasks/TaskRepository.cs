@@ -57,7 +57,7 @@ namespace HoneyRyderTask.Infrastructure.PostgreSQL.Repositories.Tasks
                 title: TaskTitle.ValueOf(data.Title),
                 description: TaskDescription.ValueOf(data.Description),
                 status: TaskStatus.ValueOf(data.Status),
-                dueDate: TaskDueDate.CreateNullable(data.DueDate),
+                dueDate: TaskDueDate.NullableValueOf(data.DueDate),
                 creationDate: TaskCreationDate.Create(data.CreationDate),
                 completionDate: TaskCompletionDate.CreateNullable(data.CompletionDate),
                 dateTimeProvider: dateTimeProvider);
