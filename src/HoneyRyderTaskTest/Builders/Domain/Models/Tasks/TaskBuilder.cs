@@ -75,7 +75,7 @@ namespace HoneyRyderTaskTest.Builders.Domain.Models.Tasks
                 description: TaskDescription.ValueOf(this.description),
                 status: TaskStatus.ValueOf(this.status),
                 dueDate: TaskDueDate.NullableValueOf(this.dueDate),
-                creationDate: TaskCreationDate.Create(this.creationDate),
+                creationDate: TaskCreationDate.ValueOf(this.creationDate),
                 completionDate: TaskCompletionDate.CreateNullable(this.completionDate),
                 dateTimeProvider: this.dateTimeProvider);
         }

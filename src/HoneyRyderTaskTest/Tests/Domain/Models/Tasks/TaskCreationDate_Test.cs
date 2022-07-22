@@ -11,40 +11,40 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
     /// </summary>
     public class TaskCreationDate_Test
     {
-        [Fact(DisplayName = "[Create(value)] 指定した値でタスク期限を生成できる")]
-        public void Create_Test1()
+        [Fact(DisplayName = "ValueOf: 指定した値でタスク期限を生成できる。")]
+        public void ValueOf_Test1()
         {
             // arrange
             var value = new DateTime(2022, 1, 1);
 
             // act
-            var creationDate = TaskCreationDate.Create(value);
+            var creationDate = TaskCreationDate.ValueOf(value);
 
             // assert
             Assert.Equal(value, creationDate.Value);
         }
 
-        [Fact(DisplayName = "[Create(value)] 指定した値の時間部分は丸めて日付のみでタスク期限を生成する")]
-        public void Create_Test2()
+        [Fact(DisplayName = "ValueOf: 指定した値の時間部分は丸めて日付のみでタスク期限を生成する。")]
+        public void ValueOf_Test2()
         {
             // arrange
             var value = new DateTime(2022, 1, 1, 12, 30, 45);
 
             // act
-            var creationDate = TaskCreationDate.Create(value);
+            var creationDate = TaskCreationDate.ValueOf(value);
 
             // assert
             Assert.NotEqual(value, creationDate.Value);     // 時間を含めると不一致
             Assert.Equal(value.Date, creationDate.Value);   // 日付だけでみると一致
         }
 
-        [Fact(DisplayName = "[Equals] 値ベースの等価比較ができる")]
+        [Fact(DisplayName = "Equals: 値ベースの等価比較ができる。")]
         public void Equals_Test1()
         {
             // arrange
             var value = new DateTime(2022, 1, 1);
-            var creationDate1 = TaskCreationDate.Create(value);
-            var creationDate2 = TaskCreationDate.Create(value);
+            var creationDate1 = TaskCreationDate.ValueOf(value);
+            var creationDate2 = TaskCreationDate.ValueOf(value);
 
             // act
             var actual = creationDate1 == creationDate2;
@@ -53,7 +53,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             Assert.True(actual);
         }
 
-        [Fact(DisplayName = "[CreateWithCurrentDate()] 現在日付でタスク期限を生成できる")]
+        [Fact(DisplayName = "CreateWithCurrentDate: 現在日付でタスク期限を生成できる。")]
         public void CreateWithCurrentDate_Test1()
         {
             // arrange

@@ -28,7 +28,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// <returns>
         /// 生成されたタスク作成日を返します。
         /// </returns>
-        public static TaskCreationDate Create(DateTime value)
+        public static TaskCreationDate ValueOf(DateTime value)
         {
             return new TaskCreationDate(value);
         }
