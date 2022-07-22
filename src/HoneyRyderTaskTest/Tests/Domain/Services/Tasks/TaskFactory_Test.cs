@@ -11,7 +11,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Services.Tasks
     /// </summary>
     public class TaskFactory_Test
     {
-        [Fact(DisplayName = "[Create()] 指定の内容でタスクを作成できる。")]
+        [Fact(DisplayName = "Create: 指定の内容でタスクを作成できる。")]
         public void Create_Test1()
         {
             // arrange

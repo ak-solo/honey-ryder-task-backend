@@ -1,10 +1,7 @@
-﻿using System;
-using HoneyRyderTask.Domain.Exceptions;
+﻿using HoneyRyderTask.Domain.Exceptions;
 using HoneyRyderTask.Domain.Models.Tasks;
-using HoneyRyderTask.Domain.Services.Shared;
 using HoneyRyderTask.UseCase.Services.Tasks;
 using HoneyRyderTask.UseCase.Services.Tasks.GetTask;
-using HoneyRyderTask.UseCase.Services.Tasks.RegisterTask;
 using HoneyRyderTaskTest.Builders.Domain.Models.Tasks;
 using Moq;
 using Xunit;
@@ -16,7 +13,7 @@ namespace HoneyRyderTaskTest.Tests.UseCase.Services.Tasks.GetTask
     /// </summary>
     public class GetTaskUseCase_Test
     {
-        [Fact(DisplayName = "[Execute] リポジトリから取得したタスクをDTOに詰め替えて返す")]
+        [Fact(DisplayName = "Execute: リポジトリから取得したタスクをDTOに詰め替えて返す。")]
         public void Execute_Test1()
         {
             // arrange
@@ -41,7 +38,7 @@ namespace HoneyRyderTaskTest.Tests.UseCase.Services.Tasks.GetTask
             Assert.Equal(expectedDto, actualDto);
         }
 
-        [Fact(DisplayName = "[Execute] リポジトリから取得したタスクがnullの場合は例外を投げる")]
+        [Fact(DisplayName = "Execute: リポジトリから取得したタスクがnullの場合は例外を投げる。")]
         public void Execute_Test2()
         {
             // arrange

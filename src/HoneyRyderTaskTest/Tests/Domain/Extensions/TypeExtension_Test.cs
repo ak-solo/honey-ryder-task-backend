@@ -9,7 +9,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Extensions
     /// </summary>
     public class TypeExtension_Test
     {
-        [Fact(DisplayName = "指定した属性を持ったクラスであれば true を返す。")]
+        [Fact(DisplayName = "HasAttribute: 指定した属性を持ったクラスであれば true を返す。")]
         public void HasAttribute_Test1()
         {
             // act
@@ -19,7 +19,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Extensions
             Assert.True(actual);
         }
 
-        [Fact(DisplayName = "指定した属性を持っていないクラスであれば false を返す。")]
+        [Fact(DisplayName = "HasAttribute: 指定した属性を持っていないクラスであれば false を返す。")]
         public void HasAttribute_Test2()
         {
             // act

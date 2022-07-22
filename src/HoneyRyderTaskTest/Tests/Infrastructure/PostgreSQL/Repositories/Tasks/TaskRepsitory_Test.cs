@@ -14,7 +14,7 @@ namespace HoneyRyderTaskTest.Tests.Infrastructure.PostgreSQL.Repositories.Tasks
     /// </summary>
     public class TaskRepsitory_Test
     {
-        [Fact(DisplayName = "[Add(task)] 指定したタスクIDに該当するタスクを取得できる")]
+        [Fact(DisplayName = "Add: 指定したタスクIDに該当するタスクを取得できる。")]
         public void Find_Test1()
         {
             // arrange
@@ -37,7 +37,7 @@ namespace HoneyRyderTaskTest.Tests.Infrastructure.PostgreSQL.Repositories.Tasks
             Assert.Equal(task.CompletionDate, data?.CompletionDate);
         }
 
-        [Fact(DisplayName = "[Add(task)] 指定したタスクIDに該当するタスクが存在しない場合はnullを返す。")]
+        [Fact(DisplayName = "Add: 指定したタスクIDに該当するタスクが存在しない場合はnullを返す。")]
         public void Find_Test2()
         {
             // arrange
@@ -56,7 +56,7 @@ namespace HoneyRyderTaskTest.Tests.Infrastructure.PostgreSQL.Repositories.Tasks
             Assert.Null(data);
         }
 
-        [Fact(DisplayName = "[Add(task)] 引数で渡したタスクがリポジトリに登録される")]
+        [Fact(DisplayName = "Add: 引数で渡したタスクがリポジトリに登録される。")]
         public void Add_Test1()
         {
             // arrange

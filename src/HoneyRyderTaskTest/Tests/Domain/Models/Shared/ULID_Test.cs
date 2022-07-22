@@ -9,7 +9,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Shared
     /// </summary>
     public class ULID_Test
     {
-        [Fact(DisplayName = "[NewULID()] 新しいULIDを採番できる")]
+        [Fact(DisplayName = "NewULID: 新しいULIDを採番できる。")]
         public void NewULID_Test1()
         {
             // act
@@ -19,7 +19,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Shared
             Assert.Equal(26, id.Value.Length);
         }
 
-        [Fact(DisplayName = "[NewULID()] 毎回異なるIDが採番される（100回実行して確認）")]
+        [Fact(DisplayName = "NewULID: 毎回異なるIDが採番される（100回実行して確認）。")]
         public void NewULID_Test2()
         {
             // act
@@ -30,7 +30,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Shared
             Assert.False(isDuplicated);
         }
 
-        [Fact(DisplayName = "[IsULID(value)] 指定した値がULIDであればtrueを返す")]
+        [Fact(DisplayName = "IsULID: 指定した値がULIDであれば true を返す。")]
         public void IsULID_Test1()
         {
             // arrange
@@ -43,7 +43,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Shared
             Assert.True(isULID);
         }
 
-        [Fact(DisplayName = "[IsULID(value)] 26文字未満の場合はfalseを返す")]
+        [Fact(DisplayName = "IsULID: 26文字未満の場合は false を返す。")]
         public void IsULID_Test2()
         {
             // arrange

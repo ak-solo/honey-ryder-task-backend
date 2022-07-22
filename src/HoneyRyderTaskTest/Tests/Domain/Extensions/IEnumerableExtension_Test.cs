@@ -8,7 +8,7 @@ namespace Domain.Extensions
     /// </summary>
     public class IEnumerableExtension_Test
     {
-        [Fact(DisplayName = "[IsDuplicated()] リスト内の要素に重複があれば true を返す。")]
+        [Fact(DisplayName = "IsDuplicated: リスト内の要素に重複があれば true を返す。")]
         public void IsDuplicated_Test1()
         {
             // arrange
@@ -21,7 +21,7 @@ namespace Domain.Extensions
             Assert.True(isDuplicated);
         }
 
-        [Fact(DisplayName = "[IsDuplicated()] リスト内の要素に重複がなければ false を返す。")]
+        [Fact(DisplayName = "IsDuplicated: リスト内の要素に重複がなければ false を返す。")]
         public void IsDuplicated_Test2()
         {
             // arrange
@@ -34,7 +34,7 @@ namespace Domain.Extensions
             Assert.False(isDuplicated);
         }
 
-        [Fact(DisplayName = "[IsDuplicated(keySelector)] リスト内の指定要素に重複がなければ false を返す。")]
+        [Fact(DisplayName = "IsDuplicated: リスト内の指定要素に重複がなければ false を返す。")]
         public void IsDuplicated_Test3()
         {
             // arrange
@@ -52,7 +52,7 @@ namespace Domain.Extensions
             Assert.True(isDuplicated);
         }
 
-        [Fact(DisplayName = "[IsDuplicated(keySelector)] リスト内の指定要素に重複がなければ false を返す。")]
+        [Fact(DisplayName = "IsDuplicated: リスト内の指定要素に重複がなければ false を返す。")]
         public void IsDuplicated_Test4()
         {
             // arrange

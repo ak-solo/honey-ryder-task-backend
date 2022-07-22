@@ -1,5 +1,4 @@
-﻿using System;
-using HoneyRyderTask.Domain.Exceptions;
+﻿using HoneyRyderTask.Domain.Exceptions;
 using HoneyRyderTask.Domain.Models.Tasks;
 using Xunit;
 

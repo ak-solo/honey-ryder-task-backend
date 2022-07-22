@@ -79,7 +79,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Shared
             Assert.Null(actual);
         }
 
-        [Fact(DisplayName = "[GetItems()] 定義してあるアイテムを全て取得できる。")]
+        [Fact(DisplayName = "GetItems: 定義してあるアイテムを全て取得できる。")]
         public void GetItems_Test1()
         {
             // act

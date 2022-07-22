@@ -13,7 +13,7 @@ namespace HoneyRyderTaskTest.Tests.UseCase.Services.Tasks.RegisterTask
     /// </summary>
     public class RegisterTaskUseCase_Test
     {
-        [Fact(DisplayName = "[Execute] 指定した内容でタスクを登録できる")]
+        [Fact(DisplayName = "Execute: 指定した内容でタスクを登録できる。")]
         public void Execute_Test1()
         {
             // arrange

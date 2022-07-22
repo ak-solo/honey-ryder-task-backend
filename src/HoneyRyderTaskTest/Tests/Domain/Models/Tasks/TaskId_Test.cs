@@ -23,7 +23,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             Assert.Equal(value, id.Value);
         }
 
-        [Fact(DisplayName = "ValueOf: 指定した値がULID形式でない場合は例外を投げる")]
+        [Fact(DisplayName = "ValueOf: 指定した値がULID形式でない場合は例外を投げる。")]
         public void ValueOf_Test2()
         {
             // arrange
@@ -36,7 +36,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             Assert.Throws<UlidFormatException>(action);
         }
 
-        [Fact(DisplayName = "NewId: 新しいタスクID(ULID)を採番できる")]
+        [Fact(DisplayName = "NewId: 新しいタスクID(ULID)を採番できる。")]
         public void NewId_Test1()
         {
             // act
@@ -46,7 +46,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             Assert.True(ULID.IsULID(newId.Value));
         }
 
-        [Fact(DisplayName = "Equals: 値ベースの等価比較ができる")]
+        [Fact(DisplayName = "Equals: 値ベースの等価比較ができる。")]
         public void Equals_Test1()
         {
             // arrange
