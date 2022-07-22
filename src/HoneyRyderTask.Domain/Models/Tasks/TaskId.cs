@@ -31,7 +31,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// <returns>
         /// 生成したタスクIDを返します。
         /// </returns>
-        public static TaskId Create(string value)
+        public static TaskId ValueOf(string value)
         {
             return new TaskId(value);
         }

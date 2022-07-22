@@ -31,7 +31,7 @@ namespace HoneyRyderTask.UseCase.Services.Tasks.GetTask
         /// </returns>
         public TaskDto Execute(string taskId)
         {
-            var targetId = TaskId.Create(taskId);
+            var targetId = TaskId.ValueOf(taskId);
             var task = this.taskRepository.Find(targetId);
             if (task == null) throw new DataNotFoundException(nameof(Task));
             return TaskDto.FromEntity(task);

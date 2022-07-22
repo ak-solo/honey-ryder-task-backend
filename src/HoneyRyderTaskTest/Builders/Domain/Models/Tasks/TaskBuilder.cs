@@ -70,7 +70,7 @@ namespace HoneyRyderTaskTest.Builders.Domain.Models.Tasks
         public Task Build()
         {
             return Task.Reconstruct(
-                id: TaskId.Create(this.id),
+                id: TaskId.ValueOf(this.id),
                 title: TaskTitle.Create(this.title),
                 description: TaskDescription.Create(this.description),
                 status: TaskStatus.ValueOf(this.status),

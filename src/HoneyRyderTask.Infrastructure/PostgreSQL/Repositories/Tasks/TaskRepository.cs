@@ -53,7 +53,7 @@ namespace HoneyRyderTask.Infrastructure.PostgreSQL.Repositories.Tasks
         private static Task ToDomainModel(TaskDataModel data, IDateTimeProvider dateTimeProvider)
         {
             return Task.Reconstruct(
-                id: TaskId.Create(data.TaskId),
+                id: TaskId.ValueOf(data.TaskId),
                 title: TaskTitle.Create(data.Title),
                 description: TaskDescription.Create(data.Description),
                 status: TaskStatus.ValueOf(data.Status),

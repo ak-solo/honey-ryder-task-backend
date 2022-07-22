@@ -44,7 +44,7 @@ namespace HoneyRyderTaskTest.Tests.Infrastructure.PostgreSQL.Repositories.Tasks
             using var scope = new TransactionScope();       // テスト終了後にロールバックされるようにトランザクションを開始しておく。
             var context = new HoneyRyderTaskDbContext();
             var repository = new TaskRepository(context, new DefaultDateTimeProvider());
-            var targetId = TaskId.Create("01G85WHT1VCHA4ATBSH6NPS19M");
+            var targetId = TaskId.ValueOf("01G85WHT1VCHA4ATBSH6NPS19M");
             var task = new TaskBuilder().Build();
             repository.Add(task);
             Assert.NotEqual(task.Id, targetId);             // 前提条件：検索するタスクIDが、登録済のタスクのIDと異なる。
