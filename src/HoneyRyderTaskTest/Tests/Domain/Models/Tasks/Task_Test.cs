@@ -25,7 +25,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
         {
             // arrange
             var title = TaskTitle.ValueOf("タスクタイトル");
-            var description = TaskDescription.Create("タスク説明");
+            var description = TaskDescription.ValueOf("タスク説明");
             var dueDate = TaskDueDate.Create(new DateTime(2022, 3, 31));
 
             // act
@@ -42,7 +42,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
         {
             // arrange
             var title = TaskTitle.ValueOf("タスクタイトル");
-            var description = TaskDescription.Create("タスク説明");
+            var description = TaskDescription.ValueOf("タスク説明");
             TaskDueDate? dueDate = null;
 
             // act
@@ -57,7 +57,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
         {
             // arrange
             var title = TaskTitle.ValueOf("タスクタイトル");
-            var description = TaskDescription.Create("タスク説明");
+            var description = TaskDescription.ValueOf("タスク説明");
             var dueDate = TaskDueDate.Create(new DateTime(2022, 3, 31));
 
             // act
@@ -72,7 +72,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
         {
             // arrange
             var title = TaskTitle.ValueOf("タスクタイトル");
-            var description = TaskDescription.Create("タスク説明");
+            var description = TaskDescription.ValueOf("タスク説明");
             var dueDate = TaskDueDate.Create(new DateTime(2022, 3, 31));
 
             // act
@@ -87,7 +87,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
         {
             // arrange
             var title = TaskTitle.ValueOf("タスクタイトル");
-            var description = TaskDescription.Create("タスク説明");
+            var description = TaskDescription.ValueOf("タスク説明");
             var dueDate = TaskDueDate.Create(new DateTime(2022, 3, 31));
             var mock = new Mock<IDateTimeProvider>();
             mock.Setup(x => x.GetCurrentDate()).Returns(() => new DateTime(2022, 1, 1));
@@ -105,7 +105,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
         {
             // arrange
             var title = TaskTitle.ValueOf("タスクタイトル");
-            var description = TaskDescription.Create("タスク説明");
+            var description = TaskDescription.ValueOf("タスク説明");
             var dueDate = TaskDueDate.Create(new DateTime(2022, 3, 31));
 
             // act
@@ -121,7 +121,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             // arrange
             var id = TaskId.NewId();
             var title = TaskTitle.ValueOf("タスクタイトル");
-            var description = TaskDescription.Create("タスク説明");
+            var description = TaskDescription.ValueOf("タスク説明");
             var status = TaskStatus.NotStarted;
             var dueDate = TaskDueDate.Create(new DateTime(2022, 3, 31));
             var createdDate = TaskCreationDate.Create(new DateTime(2022, 1, 1));

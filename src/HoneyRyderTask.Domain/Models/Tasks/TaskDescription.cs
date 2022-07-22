@@ -30,7 +30,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// <returns>
         /// 生成したタスク説明を返します。
         /// </returns>
-        public static TaskDescription Create(string value)
+        public static TaskDescription ValueOf(string value)
         {
             return new TaskDescription(value);
         }

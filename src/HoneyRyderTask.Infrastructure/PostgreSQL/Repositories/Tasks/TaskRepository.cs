@@ -55,7 +55,7 @@ namespace HoneyRyderTask.Infrastructure.PostgreSQL.Repositories.Tasks
             return Task.Reconstruct(
                 id: TaskId.ValueOf(data.TaskId),
                 title: TaskTitle.ValueOf(data.Title),
-                description: TaskDescription.Create(data.Description),
+                description: TaskDescription.ValueOf(data.Description),
                 status: TaskStatus.ValueOf(data.Status),
                 dueDate: TaskDueDate.CreateNullable(data.DueDate),
                 creationDate: TaskCreationDate.Create(data.CreationDate),
