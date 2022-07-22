@@ -24,7 +24,7 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// <returns>
         /// 生成したタスク完了日を返します。
         /// </returns>
-        public static TaskCompletionDate Create(DateTime value)
+        public static TaskCompletionDate ValueOf(DateTime value)
         {
             return new TaskCompletionDate(value);
         }
@@ -36,10 +36,10 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// <returns>
         /// 生成したタスク完了日を返します。
         /// </returns>
-        public static TaskCompletionDate? CreateNullable(DateTime? value)
+        public static TaskCompletionDate? NullableValueOf(DateTime? value)
         {
             if (value == null) return null;
-            return Create(value.GetValueOrDefault());
+            return ValueOf(value.GetValueOrDefault());
         }
 
         /// <summary>
