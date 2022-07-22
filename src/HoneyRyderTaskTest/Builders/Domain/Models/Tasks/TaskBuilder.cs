@@ -71,7 +71,7 @@ namespace HoneyRyderTaskTest.Builders.Domain.Models.Tasks
         {
             return Task.Reconstruct(
                 id: TaskId.ValueOf(this.id),
-                title: TaskTitle.Create(this.title),
+                title: TaskTitle.ValueOf(this.title),
                 description: TaskDescription.Create(this.description),
                 status: TaskStatus.ValueOf(this.status),
                 dueDate: TaskDueDate.CreateNullable(this.dueDate),
