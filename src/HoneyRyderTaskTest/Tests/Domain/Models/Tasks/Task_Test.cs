@@ -14,7 +14,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
     /// </summary>
     public class Task_Test
     {
-        public static IEnumerable<object[]> TestData_ChangeStatus_Test2()
+        public static IEnumerable<object[]> TestData_ChangeStatus_Test3()
         {
             yield return new object[] { TaskStatus.NotStarted };
             yield return new object[] { TaskStatus.Started };
@@ -149,7 +149,7 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             Assert.Equal(completedDate, task.CompletionDate);
         }
 
-        [Fact(DisplayName = "ChangeStatus: タスク状態：完了に変更した場合、タスク完了日には現在日付が設定される。")]
+        [Fact(DisplayName = "ChangeStatus: タスク状態：完了への変更時、現在日付が完了日に設定される。")]
         public void ChangeStatus_Test1()
         {
             // arrange
@@ -172,9 +172,32 @@ namespace HoneyRyderTaskTest.Tests.Domain.Models.Tasks
             Assert.Equal(currentDate, task.CompletionDate?.Value);
         }
 
-        [Theory(DisplayName = "ChangeStatus: タスク状態：完了以外に変更した場合、タスク完了日がクリアされる。")]
-        [MemberData(nameof(TestData_ChangeStatus_Test2))]
-        public void ChangeStatus_Test2(TaskStatus status)
+        [Fact(DisplayName = "ChangeStatus: タスク状態：完了への変更時、完了日が既に設定されている場合は現在日付の設定は行わない。")]
+        public void ChangeStatus_Test2()
+        {
+            // arrange
+            var originalCompletionDate = new DateTime(2022, 1, 1);
+            var currentDate = new DateTime(2022, 3, 31);
+            var mock = new Mock<IDateTimeProvider>();
+            mock.Setup(x => x.GetCurrentDate()).Returns(() => currentDate);
+            var dateTimeProvider = mock.Object;
+            var task = new TaskBuilder()
+                .WithStatus(TaskStatus.NotStarted.Value)
+                .WithCompletionDate(originalCompletionDate)
+                .WithDateTimeProvider(dateTimeProvider)
+                .Build();
+
+            // act
+            task.ChangeStatus(TaskStatus.Completed);
+
+            // assert
+            Assert.Equal(TaskStatus.Completed, task.Status);
+            Assert.Equal(originalCompletionDate, task.CompletionDate?.Value);
+        }
+
+        [Theory(DisplayName = "ChangeStatus: タスク状態：完了以外への変更時、タスク完了日がクリアされる。")]
+        [MemberData(nameof(TestData_ChangeStatus_Test3))]
+        public void ChangeStatus_Test3(TaskStatus status)
         {
             // arrange
             var task = new TaskBuilder()

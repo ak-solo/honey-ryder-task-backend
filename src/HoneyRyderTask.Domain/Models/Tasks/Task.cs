@@ -129,9 +129,17 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         public void ChangeStatus(TaskStatus status)
         {
             this.Status = status;
+            this.SetCompletionDateFromStatus(status);
+        }
+
+        private void SetCompletionDateFromStatus(TaskStatus status)
+        {
             if (status == TaskStatus.Completed)
             {
-                this.CompletionDate = TaskCompletionDate.CreateWithCurrentDate(this.dateTimeProvider);
+                if (this.CompletionDate == null)
+                {
+                    this.CompletionDate = TaskCompletionDate.CreateWithCurrentDate(this.dateTimeProvider);
+                }
             }
             else
             {
