@@ -19,5 +19,11 @@ namespace HoneyRyderTask.Domain.Models.Tasks
         /// </summary>
         /// <param name="task">タスク</param>
         void Add(Task task);
+
+        /// <summary>
+        /// リポジトリのタスクを更新します。
+        /// </summary>
+        /// <param name="task">タスク</param>
+        void Update(Task task);
     }
 }

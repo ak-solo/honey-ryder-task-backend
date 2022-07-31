@@ -1,6 +1,10 @@
-﻿using HoneyRyderTask.Domain.Models.Shared;
+﻿using System.Net.NetworkInformation;
+using System.Threading.Tasks;
+using HoneyRyderTask.Domain.Exceptions;
+using HoneyRyderTask.Domain.Models.Shared;
 using HoneyRyderTask.Domain.Models.Tasks;
 using HoneyRyderTask.Infrastructure.PostgreSQL.DataModels.Tasks;
+using Microsoft.VisualBasic;
 using Task = HoneyRyderTask.Domain.Models.Tasks.Task;
 using TaskStatus = HoneyRyderTask.Domain.Models.Tasks.TaskStatus;
 
@@ -50,6 +54,18 @@ namespace HoneyRyderTask.Infrastructure.PostgreSQL.Repositories.Tasks
             this.context.SaveChanges();
         }
 
+        /// <summary>
+        /// リポジトリのタスクを更新します。
+        /// </summary>
+        /// <param name="task">タスク</param>
+        public void Update(Task task)
+        {
+            var data = this.context.Tasks.Find(task.Id.Value);
+            if (data == null) throw new DataNotFoundException(nameof(Task));
+            Transfer(task, ref data);
+            this.context.SaveChanges();
+        }
+
         private static Task ToDomainModel(TaskDataModel data, IDateTimeProvider dateTimeProvider)
         {
             return Task.Reconstruct(
@@ -75,6 +91,17 @@ namespace HoneyRyderTask.Infrastructure.PostgreSQL.Repositories.Tasks
                 CreationDate = task.CreationDate.Value,
                 CompletionDate = task.CompletionDate?.Value,
             };
+        }
+
+        private static void Transfer(Task task, ref TaskDataModel data)
+        {
+            data.TaskId = task.Id.Value;
+            data.Title = task.Title.Value;
+            data.Description = task.Description.Value;
+            data.Status = task.Status.Value;
+            data.DueDate = task.DueDate?.Value;
+            data.CreationDate = task.CreationDate.Value;
+            data.CompletionDate = task.CompletionDate?.Value;
         }
     }
 }

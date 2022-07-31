@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Transactions;
+﻿using System.Transactions;
 using HoneyRyderTask.Domain.Models.Tasks;
 using HoneyRyderTask.Domain.Services.Shared;
 using HoneyRyderTask.Infrastructure.PostgreSQL;
@@ -19,8 +18,7 @@ namespace HoneyRyderTaskTest.Tests.Infrastructure.PostgreSQL.Repositories.Tasks
         {
             // arrange
             using var scope = new TransactionScope();       // テスト終了後にロールバックされるようにトランザクションを開始しておく。
-            var context = new HoneyRyderTaskDbContext();
-            var repository = new TaskRepository(context, new DefaultDateTimeProvider());
+            var repository = this.CreateTaskRepository();
             var task = new TaskBuilder().Build();
             repository.Add(task);
 
@@ -42,11 +40,11 @@ namespace HoneyRyderTaskTest.Tests.Infrastructure.PostgreSQL.Repositories.Tasks
         {
             // arrange
             using var scope = new TransactionScope();       // テスト終了後にロールバックされるようにトランザクションを開始しておく。
-            var context = new HoneyRyderTaskDbContext();
-            var repository = new TaskRepository(context, new DefaultDateTimeProvider());
-            var targetId = TaskId.ValueOf("01G85WHT1VCHA4ATBSH6NPS19M");
+            var repository = this.CreateTaskRepository();
             var task = new TaskBuilder().Build();
             repository.Add(task);
+
+            var targetId = TaskId.ValueOf("01G85WHT1VCHA4ATBSH6NPS19M");
             Assert.NotEqual(task.Id, targetId);             // 前提条件：検索するタスクIDが、登録済のタスクのIDと異なる。
 
             // act
@@ -61,22 +59,52 @@ namespace HoneyRyderTaskTest.Tests.Infrastructure.PostgreSQL.Repositories.Tasks
         {
             // arrange
             using var scope = new TransactionScope();       // テスト終了後にロールバックされるようにトランザクションを開始しておく。
-            var context = new HoneyRyderTaskDbContext();
-            var repository = new TaskRepository(context, new DefaultDateTimeProvider());
+            var repository = this.CreateTaskRepository();
             var task = new TaskBuilder().Build();
+
+            var before = repository.Find(task.Id);
+            Assert.Null(before);                            // 前提条件：追加前にはデータが存在しないことを確認する。
 
             // act
             repository.Add(task);
 
             // assert
-            var addedData = context.Tasks.Single(t => t.TaskId == task.Id.Value);
-            Assert.Equal(task.Id.Value, addedData.TaskId);
-            Assert.Equal(task.Title.Value, addedData.Title);
-            Assert.Equal(task.Description.Value, addedData.Description);
-            Assert.Equal(task.Status.Value, addedData.Status);
-            Assert.Equal(task.DueDate?.Value, addedData.DueDate);
-            Assert.Equal(task.CreationDate.Value, addedData.CreationDate);
-            Assert.Equal(task.CompletionDate?.Value, addedData.CompletionDate);
+            var addedTask = repository.Find(task.Id);
+            Assert.NotNull(addedTask);
+            Assert.Equal(task.Id, addedTask?.Id);
+            Assert.Equal(task.Title, addedTask?.Title);
+            Assert.Equal(task.Description, addedTask?.Description);
+            Assert.Equal(task.Status, addedTask?.Status);
+            Assert.Equal(task.DueDate, addedTask?.DueDate);
+            Assert.Equal(task.CreationDate, addedTask?.CreationDate);
+            Assert.Equal(task.CompletionDate, addedTask?.CompletionDate);
+        }
+
+        [Fact(DisplayName = "Add: 引数で渡したタスクでリポジトリを更新できる。")]
+        public void Update_Test1()
+        {
+            // arrange
+            using var scope = new TransactionScope();       // テスト終了後にロールバックされるようにトランザクションを開始しておく。
+            var repository = this.CreateTaskRepository();
+            var task = new TaskBuilder()
+                .WithStatus(TaskStatus.NotStarted.Value)
+                .Build();
+            repository.Add(task);
+            task.ChangeStatus(TaskStatus.Started);          // タスク状態を NotStarted -> Started に変更
+
+            // act
+            repository.Update(task);
+
+            // assert
+            var updatedTask = repository.Find(task.Id);
+            Assert.Equal(task.Status.Value, updatedTask?.Status.Value);
+        }
+
+        private TaskRepository CreateTaskRepository()
+        {
+            return new TaskRepository(
+                new HoneyRyderTaskDbContext(),
+                new DefaultDateTimeProvider());
         }
     }
 }
