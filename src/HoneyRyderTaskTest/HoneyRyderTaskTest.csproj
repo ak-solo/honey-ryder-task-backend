@@ -58,6 +58,7 @@
     <None Remove="Tests\Infrastructure\PostgreSQL\" />
     <None Remove="Tests\Infrastructure\PostgreSQL\Repositories\" />
     <None Remove="Tests\Infrastructure\PostgreSQL\Repositories\Tasks\" />
+    <None Remove="Tests\UseCase\Services\Tasks\UpdateTaskStatus\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Tests\" />
@@ -80,5 +81,6 @@
     <Folder Include="Tests\Infrastructure\PostgreSQL\" />
     <Folder Include="Tests\Infrastructure\PostgreSQL\Repositories\" />
     <Folder Include="Tests\Infrastructure\PostgreSQL\Repositories\Tasks\" />
+    <Folder Include="Tests\UseCase\Services\Tasks\UpdateTaskStatus\" />
   </ItemGroup>
 </Project>
